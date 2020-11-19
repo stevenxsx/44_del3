@@ -30,3 +30,4 @@
 .idea/**/libraries
 # IntelliJ
 out/
+target/
