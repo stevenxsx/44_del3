@@ -24,8 +24,8 @@ public class GameBoard {
         gameBoardList[19] = new FieldJail();
         gameBoardList[20] = new visitJail("På besøg");
         gameBoardList[22] = new FieldParking("Gratis parkering");
-        gameBoardList[24] = new
-        gameBoardList[25] = new
+       // gameBoardList[24] = new
+        //®gameBoardList[25] = new
 
         }
 
