@@ -20,7 +20,7 @@ public class GameBoard {
         gameBoardList[13] = new FieldStreet("M4","Zoo",false,'g',4,2);
         gameBoardList[14] = new FieldStreet("M5","Vandlandet",false,'h',5,3);
         gameBoardList[15] = new FieldStreet("M5","Strandpromaden",false,'h',5,3);
-        /gameBoardList[17] = new
+        /gameBoardList[17] = new FieldStart();
         /gameBoardList[19] = new
         /gameBoardList[20] = new
         /gameBoardList[22] = new

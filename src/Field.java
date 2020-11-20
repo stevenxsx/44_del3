@@ -1,5 +1,5 @@
 abstract class Field {
-    public abstract void landOnField(
+    /*public abstract void landOnField(
 
-    );
+    );*/
 }
