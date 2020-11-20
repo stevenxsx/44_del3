@@ -1,5 +1,5 @@
  public class FieldStreet extends Field {
-        int price;
+     String displayPrice;
         String propertyName;
         Boolean owned;
        // Player owner;
@@ -20,4 +20,9 @@
             this.streetPrice=streetPrice;
             this.rentPrice=rentPrice;
         }
-}
+
+     @Override
+     public void landOnField() {
+
+     }
+ }

@@ -1,2 +1,3 @@
-public class FieldChance {
+public  class FieldChance {
+
 }
