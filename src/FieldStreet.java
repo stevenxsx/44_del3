@@ -21,8 +21,8 @@
             this.rentPrice=rentPrice;
         }
 
-     @Override
-     public void landOnField() {
-
-     }
+   // @Override
+   // public void landOnField() {
+//
+   //  }
  }
