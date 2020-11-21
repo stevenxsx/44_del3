@@ -1,5 +1,3 @@
-package main.java;
-
 public class Player {
 //    private String Name;
 //    private final main.java.Account main.java.Account;
