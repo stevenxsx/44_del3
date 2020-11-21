@@ -22,7 +22,8 @@ public class ChanceCards extends ChanceCardController {
     public void cardPile () {
         switch (cardNumber) {
             case 1:
-                /*Ryk frem til start
+                //Ryk frem til start
+                /*
                 player.setPosition(1);
                 player.addCash(PlayerAccount: 2)
                 Jeg har hverken Player eller Account klassen til rådighed, så jeg gætter på hvad
@@ -32,6 +33,20 @@ public class ChanceCards extends ChanceCardController {
                 Har ikke en Gui-klasse, så gætter igen...
                 */
                 break;
+
+
+            case 2:
+                //ryk fem felter frem
+                /*
+                player.setPosition(player.getPosition()+5);
+                if (player.getPosition()>24){
+                    player.setPosition(player.getPosition()-24);
+                    (--------------)
+                    Her skal der nok indsættes en gui-funktion der fortæller spilleren hvad der sker.
+                    Har ikke en Gui-klasse, så gætter igen...
+                */
+
+                }
         }
 
         }

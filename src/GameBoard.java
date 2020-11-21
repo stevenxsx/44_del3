@@ -1,6 +1,6 @@
 public class GameBoard {
 
-    private Field[] gameBoardList = new Field[25];
+    private Field[] gameBoardList = new Field[24];
 
     //et array som indeholder alle felter og deres attributter
     public GameBoard() {
