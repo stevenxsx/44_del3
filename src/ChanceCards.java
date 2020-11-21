@@ -1,3 +1,3 @@
 public class ChanceCards extends ChanceCardField {
-//her skal alle chancekort være ....
+//her skal alle chancekort være ....ChanceCardController
 }
