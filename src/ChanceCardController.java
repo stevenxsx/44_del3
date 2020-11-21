@@ -21,3 +21,9 @@ public class ChanceCardController extends Field {
         return i;
     }
 }
+
+/* Jeg er lidt forvirret over hvorfor der både er en Chancecards og en ChanceCardsController, idet man normalt ikke laver en controller som der
+    bliver extended og bruger den extendede ting. Effektivt gør det at ChanceCards er en kontroller af sig selv.
+    Jeg er også lettere forevirret over selve formålet for controlleren? Jeg foreslår at samle ChanceCards og ChanceCardController ;)
+    - Kat
+ */
