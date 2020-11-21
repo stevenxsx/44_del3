@@ -51,3 +51,7 @@ public class ChanceCards extends ChanceCardController {
 
         }
     }
+    /*Standartcommit
+    Har lavet ChanceCard nr. 2, Men de andre nødvendige klasser
+mangler, så kaldemetoderne er sikkert noget sludder.
+     */
