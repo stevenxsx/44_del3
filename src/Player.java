@@ -13,6 +13,16 @@ public class Player {
     }
 }
 
-public void "balencechanges"(){
+public void addCoins(int amount) {
 
+        Account.addCoins(amount);
+        }
+
+
+public String getName() {
+    return Name;
 }
+
+public int getCoins() {
+
+        return Account.getCoins();
