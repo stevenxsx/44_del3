@@ -3,7 +3,7 @@ public class GameBoard {
     private Field[] gameBoardList = new Field[25];
 
     //et array som indeholder alle felter og deres attributter
-    public Field[] GameBoard() {
+    public Field[] GameBoard(int fieldNumber) {
         gameBoardList[2] = new FieldStreet("M1","Burgerbaren",false,'a', 1,1 );
         gameBoardList[3] = new FieldStreet("M1", "Pizzariaet",false,'a',1,1);
         gameBoardList[4] = new ChanceCardField();
