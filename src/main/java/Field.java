@@ -1,2 +1,2 @@
-public class Field {
+abstract class Field {
 }
