@@ -1,7 +1,7 @@
  public class FieldStreet extends Field {
      String displayPrice;
         String propertyName;
-        Boolean owned;
+        Boolean owned;   //Er denne her nødvendig? Tænker hvis ingen owner, owner = null - Kat
        // Player owner;
         char type;
         int rentPrice;
