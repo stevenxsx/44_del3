@@ -13,7 +13,7 @@ public class GUI_Controller {
     private GUI_Player[] player;
     private GUI_Car[] car;
 
-    public void makeGUI(){
+    /*public void makeGUI(){
         GUI_Field[] fields = GameBoard();
 
         gui =new GUI(fields, Color.PINK);
@@ -26,5 +26,5 @@ public class GUI_Controller {
             player[i] = new GUI_Player(t[i].getName(),p[i].setBlance(), car[i]);
             gui.addPlayer(player[i])
         }
-    }
+    }*/
 }
