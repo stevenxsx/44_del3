@@ -27,7 +27,7 @@ public class GUI_Game {
             gameRound();
 
         }
-       gui_controller.showMessage("CONGRATULATIONS! " + currentPlayer.getName() + " has reached 3000 coins and won the game ");
+       gui_controller.showMessage("Victory message here");
     }
 
     private void gameRound() {
