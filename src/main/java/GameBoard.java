@@ -1,3 +1,5 @@
+package main.java;
+
 public class GameBoard {
 
     private Field[] gameBoardList = new Field[24];
