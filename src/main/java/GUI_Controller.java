@@ -8,6 +8,19 @@ import gui_main.GUI;
 import java.awt.*;
 import java.util.regex.Pattern;
 
+/**
+ * public class GUI_Controller {
+ *
+ *     private GUI_Field[] fields= new GUI_Controller[23];
+ *
+ *     public GUI_Controller(){
+ *         hvert felt
+ *     }
+ *     public GUI_Controller[] gameFields(){return fields;}
+ *     }
+ */
+
+
 public class GUI_Controller {
     private GUI gui;
     private GUI_Player[] player;
