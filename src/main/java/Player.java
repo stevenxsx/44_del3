@@ -1,6 +1,4 @@
 
-import main.java.Account;
-
 public class Player {
     public final String name;
     private final Account account;

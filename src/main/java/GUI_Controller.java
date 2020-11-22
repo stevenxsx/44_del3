@@ -25,10 +25,12 @@ public class GUI_Controller {
     private GUI gui;
     private GUI_Player[] player;
     private GUI_Car[] car;
-    GameBoard gameBoard = new GameBoard();
+    private GameBoard[] gameBoard;
+
 
     public void makeGUI(){
         for (int i = 0; i < 24; i++) {
+
             GUI_Field[] fields = gameBoard[i];
         }
 
