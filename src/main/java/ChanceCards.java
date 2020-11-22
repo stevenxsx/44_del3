@@ -102,7 +102,6 @@ public class ChanceCards extends ChanceCardController {
         }
 
         }
-    }
     /*Standartcommit
 Changes     Har lavet ChanceCard nr. ??, Men de andre nødvendige klasser
 mangler, så kaldemetoderne er sikkert noget sludder.
