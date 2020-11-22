@@ -30,7 +30,7 @@ public class ChanceCards extends ChanceCardController {
                 //Ryk frem til start
                 /*
                 player.setPlayerPosition(1);
-                player.addCash(PlayerAccount: 2)
+                player.addCash(2)
                 Jeg har hverken Player eller Account klassen til rådighed, så jeg gætter på hvad
                 kaldemetoden ender med; Skal nok rettes senere.
                 (--------------)
@@ -42,13 +42,12 @@ public class ChanceCards extends ChanceCardController {
 
             case 2:
                 //ryk fem felter frem
-                
+
                 player.setPlayerPosition(player.getPlayerPosition()+5);
                 if (player.getPlayerPosition()>23){
+
                     player.setPlayerPosition(player.getPlayerPosition()-23);
-                    }
-                    do {
-                    player.addCoins(2)
+                    player.addCoins(2);
                     }
                     /*(--------------)
                     Her skal der nok indsættes en gui-funktion der fortæller spilleren hvad der sker.
@@ -59,10 +58,10 @@ public class ChanceCards extends ChanceCardController {
 
             case 3:
                 //Du har spist for meget slik, betal 2M
- /*
-                player.SubtractCash(PlayerAccount: 2)
-                Jeg har hverken Player eller Account klassen til rådighed, så jeg gætter på hvad
-                kaldemetoden ender med; Skal nok rettes senere.
+
+                player.addCoins(-2);
+                        /*
+
                 (--------------)
                 Her skal der nok indsættes en gui-funktion der fortæller spilleren hvad der sker.
                 Har ikke en Gui-klasse, så gætter igen...
@@ -70,8 +69,9 @@ public class ChanceCards extends ChanceCardController {
 
             case 4:
                 //Ryk frem til Strandpromaden
+
+                player.setPlayerPosition(23);
                 /*
-                player.setPlayerPosition(24);
                 (--------------)
                 Her skal der nok indsættes en gui-funktion der fortæller spilleren hvad der sker.
                 Har ikke en Gui-klasse, så gætter igen...
@@ -81,11 +81,14 @@ public class ChanceCards extends ChanceCardController {
 
             case 5:
                 //Det er din fødselsdag, alle spiller giver dig 1M. n/ TILLYKKE MED FØDSELSDAGEN
-                /*
-                    for (int i = 0; i < playerArray.length; i++) {
-                        playerArray[i].subtractMoney(1);
+
+                    for (int i = 0;
+                         i < playerArray.length;
+                         i++) {
+                        playerArray[i].addCoins(-1);
                     }
-                    player.addCash(playerArray.length*1);
+                    player.addCoins(playerArray.length*1);
+                    /*
                 Her skal der nok indsættes en gui-funktion der fortæller spilleren hvad der sker.
                 Har ikke en Gui-klasse, så gætter igen...
                 */
