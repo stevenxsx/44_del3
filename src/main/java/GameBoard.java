@@ -3,8 +3,9 @@ public class GameBoard {
 
     private Field[] gameBoardList = new Field[24];
 
+
     //et array som indeholder alle felter og deres attributter
-    public GameBoard() {
+    public Field[] GameBoard() {
         gameBoardList[0] = new FieldStart();
         gameBoardList[1] = new FieldStreet("M1","Burgerbaren",false,'a', 1,1 );
         gameBoardList[2] = new FieldStreet("M1", "Pizzariaet",false,'a',1,1);
@@ -29,5 +30,7 @@ public class GameBoard {
         gameBoardList[21] = new ChanceCardController();
         gameBoardList[22] = new FieldStreet("M5","Vandlandet",false,'h',5,3);
         gameBoardList[23] = new FieldStreet("M5","Strandpromaden",false,'h',5,3);
+
+
         }
     }

@@ -29,23 +29,27 @@ public class GUI_Controller {
     private GUI gui;
     private GUI_Player[] player;
     private GUI_Car[] car;
-    private GameBoard[] gameBoard;
+    private GUI_Field field;
+
 
 
     public void makeGUI(){
-        for (int i = 0; i < 24; i++) {
+        GameBoard test = new GameBoard();
+        Field[] test1 = test.GameBoard();
 
-            GUI_Field[] fields = gameBoard[i];
+        for (int i = 0; i < test1.length; i++) {
+            System.out.println(test1[i]);
+            //GUI_Field[] fields = test1[i];
         }
 
-        gui =new GUI(fields, Color.PINK);
+
     }
     public void antalPlayers(PlayerList[] t){ //den skal have fat i en methode med array i.
         player = new GUI_Player[t.length];
         car = new GUI_Car[t.length];
         for (int i = 0; i < t.length; i++) {
             car[i] = new GUI_Car(Color.RED, Color.cyan, GUI_Car.Type.CAR, GUI_Car.Pattern.CHECKERED);
-            player[i] = new GUI_Player(t[i],t[i].getCoins(), car[i]);
+            player[i] = new GUI_Player(t[i],t[i].(), car[i]);
             gui.addPlayer(player[i]);
         }
 
