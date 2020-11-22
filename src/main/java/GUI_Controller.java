@@ -51,5 +51,5 @@ public class GUI_Controller {
 
     }
 
-    public void rollDice()
+    public void rollDice();
 }
