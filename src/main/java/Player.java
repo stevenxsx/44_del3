@@ -11,6 +11,10 @@ public class Player {
         this.account = new Account(numPlayers);
     }
 
+    public Account getAccount() {
+        return account;
+    }
+
     public boolean addCoins(int amount) {
         return account.addCoins(amount);
     }
