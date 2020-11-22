@@ -15,6 +15,10 @@ import java.util.regex.Pattern;
  *
  *     public GUI_Controller(){
  *         hvert felt
+ *         fields[0] = new GUI_Start();
+ *          fields[1] = new GUI_Street();
+ *             fields[2] = new GUI_Street();
+ *               fields[3] = new GUI_Chance();
  *     }
  *     public GUI_Controller[] gameFields(){return fields;}
  *     }
