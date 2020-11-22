@@ -1,10 +1,8 @@
 package CDIO2_Game;
 
 import gui_fields.GUI_Field;
-import gui_fields.GUI_Street;
 import gui_fields.*;
 import gui_main.GUI;
-import CDIO2_Game.Game;
 
 import java.awt.*;
 
