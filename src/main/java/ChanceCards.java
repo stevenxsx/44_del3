@@ -29,7 +29,7 @@ public class ChanceCards extends ChanceCardController {
             case 1:
                 //Ryk frem til start
                 /*
-                player.setPosition(1);
+                player.setPlayerPosition(1);
                 player.addCash(PlayerAccount: 2)
                 Jeg har hverken Player eller Account klassen til rådighed, så jeg gætter på hvad
                 kaldemetoden ender med; Skal nok rettes senere.
@@ -42,15 +42,15 @@ public class ChanceCards extends ChanceCardController {
 
             case 2:
                 //ryk fem felter frem
-                /*
-                player.setPosition(player.getPosition()+5);
-                if (player.getPosition()>23){
-                    player.setPosition(player.getPosition()-23);
+                
+                player.setPlayerPosition(player.getPlayerPosition()+5);
+                if (player.getPlayerPosition()>23){
+                    player.setPlayerPosition(player.getPlayerPosition()-23);
                     }
                     do {
-                    player.addCash(PlayerAccount: 2)
+                    player.addCoins(2)
                     }
-                    (--------------)
+                    /*(--------------)
                     Her skal der nok indsættes en gui-funktion der fortæller spilleren hvad der sker.
                     Har ikke en Gui-klasse, så gætter igen...
                 */
@@ -71,7 +71,7 @@ public class ChanceCards extends ChanceCardController {
             case 4:
                 //Ryk frem til Strandpromaden
                 /*
-                player.setPosition(24);
+                player.setPlayerPosition(24);
                 (--------------)
                 Her skal der nok indsættes en gui-funktion der fortæller spilleren hvad der sker.
                 Har ikke en Gui-klasse, så gætter igen...
