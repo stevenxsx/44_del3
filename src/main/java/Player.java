@@ -1,6 +1,7 @@
 public class Player {
     public final String name;
     private final Account account;
+    private int Age;
 
     public Player(String name, int numPlayers) {
         this.name = name;
