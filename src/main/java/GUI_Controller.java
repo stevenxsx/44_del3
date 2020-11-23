@@ -29,19 +29,20 @@ public class GUI_Controller {
     private GUI gui;
     private GUI_Player[] player;
     private GUI_Car[] car;
-    private GUI_Field field;
+    private GUI_Field[] field;
 
-
+public void GUI(){
+    this.gui = gui;
+    this.field = gui.getFields();
+}
 
     public void makeGUI(){
         GameBoard test = new GameBoard();
-        Field[] test1 = test.GameBoard();
 
-        for (int i = 0; i < test1.length; i++) {
-            System.out.println(test1[i]);
-            //GUI_Field[] fields = test1[i];
+        for (int i = 0; i < test.GameBoard().length; i++) {
+            GUI_Field[] field = test.getGameBoardList(i);
         }
-
+        gui = new GUI(field, Color.CYAN);
 
     }
     public void antalPlayers(PlayerList[] t){ //den skal have fat i en methode med array i.

@@ -22,6 +22,8 @@ public class Game {
     private static int selectedLanguage;
     Language language = new Language();
 
+    public void makeGUIBoard(){
+    }
     public void startGame() {
         System.out.println("Please select a language. Type 0 for English");
         typedLanguage = typeLanguage.nextLine();

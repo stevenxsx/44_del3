@@ -30,7 +30,9 @@ public class GameBoard {
         gameBoardList[21] = new ChanceCardController();
         gameBoardList[22] = new FieldStreet("M5","Vandlandet",false,'h',5,3);
         gameBoardList[23] = new FieldStreet("M5","Strandpromaden",false,'h',5,3);
-
-
+        return gameBoardList;
         }
+
+    public Field getGameBoardList(int number){return  gameBoardList[number];}
+
     }
