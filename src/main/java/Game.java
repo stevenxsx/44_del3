@@ -27,7 +27,7 @@ public class Game {
         } else selectedLanguage = 0;
 
         list_of_fields = FieldFactory.makeFields(selectedLanguage);
-        welcomeMessage();
+        welcomeMessage();//hej
 
         //Select number of players (2-4)
         //For-loop inputting the names into (player# = new Player(input))
