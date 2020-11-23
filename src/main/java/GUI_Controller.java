@@ -36,16 +36,16 @@ public void GUI(){
     this.field = gui.getFields();
 }
 
-    public void makeGUI(){
+    public void makeGUI(){// method to make GUI Board.
         GameBoard test = new GameBoard();
 
         for (int i = 0; i < test.GameBoard().length; i++) {
-            GUI_Field[] field = test.getGameBoardList(i);
+            Field field = test.getGameBoardList(i);
         }
         gui = new GUI(field, Color.CYAN);
 
     }
-    public void antalPlayers(PlayerList[] t){ //den skal have fat i en methode med array i.
+   /* public void antalPlayers(PlayerList[] t){ //den skal have fat i en methode med array i.
         player = new GUI_Player[t.length];
         car = new GUI_Car[t.length];
         for (int i = 0; i < t.length; i++) {
@@ -54,7 +54,7 @@ public void GUI(){
             gui.addPlayer(player[i]);
         }
 
-    }
+    }*/
 
-    public void rollDice();
+    //public void rollDice();
 }

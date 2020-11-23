@@ -1,7 +1,3 @@
-import CDIO2_Game.*;
-import CDIO2_Game.Dice;
-import CDIO2_Game.Field;
-import CDIO2_Game.Player;
 
 import java.util.Scanner;
 
@@ -20,7 +16,7 @@ public class Game {
     boolean gameInProgress = true;
     Field[] list_of_fields;
     private static int selectedLanguage;
-    Language language = new Language();
+    /*Language language = new Language();
 
     public void makeGUIBoard(){
     }
@@ -69,7 +65,7 @@ public class Game {
     }
 
     public static int returnLanguage() { return selectedLanguage; }
-
+*/
 }
 
 

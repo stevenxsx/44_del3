@@ -3,14 +3,16 @@ import java.util.Random;
 public class ChanceCardController extends Field {
 
     //her vil jeg prøve at lave det så at classen henter kortene fra bunken (ChanceCard)
-    int i;
+   /* int i;
+
+
 
     public ChanceCardController(){
 
     }
 
     //trækker et kort fra bunken af chancekort
-    public int getCard (Player player, int i/*Her skal den hente" GUI gui" og spilleren der rammer  */) {
+    public int getCard (Player player, int i/*Her skal den hente" GUI gui" og spilleren der rammer  *//*) {
         this.i =i;
         Random cardPile = new Random();
         int card = cardPile.nextInt(20) + 1;
@@ -19,7 +21,7 @@ public class ChanceCardController extends Field {
         chanceCard.cardPile();
         i= chanceCard.getTurn();
         return i;
-    }
+    }*/
 }
 
 /* Jeg er lidt forvirret over hvorfor der både er en Chancecards og en ChanceCardsController, idet man normalt ikke laver en controller som der
