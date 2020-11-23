@@ -16,7 +16,7 @@ public class Game {
     boolean gameInProgress = true;
     Field[] list_of_fields;
     private static int selectedLanguage;
-   /* Language language = new Language();
+   Language language = new Language();
 
 
     public void startGame() {
@@ -63,7 +63,7 @@ public class Game {
         //property and the highest wins. If that's also a tie, then fight to the death by fist.
     }
 
-    public static int returnLanguage() { return selectedLanguage; }*/
+    public static int returnLanguage() { return selectedLanguage; }
 
 }
 
