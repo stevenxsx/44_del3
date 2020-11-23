@@ -7,7 +7,11 @@ public class Language {
 
     //Strings for welcomeMessage()
     public String[] welcomeMessage = {"Velkommen til Monopoly Junior\n"+
-    "Saml dine venner og tag på eventyr på Monopoly Juniors spilleplade"};
+            "Saml din venner og tag på eventyr på Monopoly Juniors bræt\n"+
+            "Vælg din spillerfigur, kast terningen og sus rundt på brættet for at købe alle de ejendomme du lander på, samle kontanter\n"+
+            "og tage chancekort. Når en spiller ikke har råd til at betale, skal de andre spillere tælle deres penge.\n"+
+            "Spilleren med flest penge når en modspiller går fallit vinder\n"+
+            "Held og lykke!"};
 
     // Strings for startGame()
     public String[] enterName = {"Angiv dit navn"};
@@ -15,23 +19,28 @@ public class Language {
     public String[] choosePlayerFigur = {"Vælg din spillerfigur"};
     public String[] contineGame = {"Tryk enter og lad spillet starte"};
 
+
     // Strings for landOnField()
     public String[] youLandenOn = {"Du landede på"};
     public String[] isOwnedBy = {"Dette felt er ejet af"};
     public String[] getFieldDescriptionEjetFelt = {"Du skal betale husleje til den spiller der ejer feltet\n"+ "Du skal betale det beløb der står på feltet"};
     public String[] isFree = {"Dette felt er ledigt"};
-    public String[] getFieldDescriptionLedigtFelt = {"Dette felt er ledigt, og du skal nu købe det!\n"+
+    public String[] getFieldDescriptionLedigtFelt = {"Du skal købe feltet!\n"+
                                                      "Betal banken det det beløb, der står på feltet, og placér et af dine solgt-skilte på det farvede bånd"};
-    public String[] getFieldDescriptionDobbeltEjetFelt = {"ejer denne ejendom og ejer også ejendommen med samme farve\n"+
-                                                          "Du skal nu betale husleje som er det dobbelte beløb, af hvad der står på feltet"};
+    public String[] getFieldDescriptionDobbeltEjetFelt = {"ejer dette felt og ejer også ejendommen med samme farve\n"+
+                                                          "Du skal nu betale denne spiller husleje som er det dobbelte beløb, af hvad der står på feltet"};
+    public String[] landOnLegetoejsbutikken = {"Du landede på feltet Lejetøjsbutikken"};
+    public String[] landOnDyreHandlen = {"Du landede på feltet Dyrehandlen"};
+
+
     // Strings for makeFields()
     public String[] fieldDescriptionChance = {"Tag det øverste chancekort, læs det højt, og følg instruktionerne.\n"+
     "Læg dit brugte kort tilbage nederst i bunken."};
     public String[] fieldDescriptionStart ={"Du har passeret eller er landet på feltet START. Du modtager M2 fra banken"};
     public String[] fieldDescriptionPaaBesoeg = {"Bare rolig. Lander du her er du bare på besoeg"};
     public String[] fieldDescriptionGaaiFaengsel = {"Gå lige i fængsel!\n"+ "Du passerer ikke START. Du modtager ikke M2.\n"+
-    "I starten af din næste tur skal du betale M1 eller bruge 'Du løslades uden omkostninger'-kortet."};
-    public String[] fieldDescriptionGratisParkering = {"Du behøver ikke gøre noget, bare snup dig en pause"};
+                                                    "I starten af din næste tur skal du betale M1 eller bruge 'Du løslades uden omkostninger'-kortet."};
+    public String[] fieldDescriptionGratisParkering = {"Du behøver ikke gøre noget her, bare snup dig en pause"};
 
     // Strings for chanceCards ()
     public String[] chanceCard1 = {"Giv dette kort til BILEN, og tag et chancekort mere.\n"+
@@ -87,13 +96,16 @@ public class Language {
 
 
     // Strings for turn()
-    public String[] rolled = {"Du slå en "}
+    public String[] rolled = {"Du slog"};
+
+
 
     //Strings for checkForWin()
     public String[] youWon = {"Tillykke! Du havde flest penge tilbage da din modspiller gik fallit.\n"+
     "Du har vundet spillet"};
     public String[] goBankRupt = {"Åh nej....!! Du har ikke nok penge til at købe ejendommen eller betale husleje til din modspiller\n"+
-    "Du går fallit og har tabt spillet"};
+    "Du er gået fallit og har tabt spillet"};
+
 
 
 
