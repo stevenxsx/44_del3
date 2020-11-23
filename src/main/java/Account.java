@@ -1,4 +1,3 @@
-package main.java;
 
 public class Account {
     private static int DEFAULT_COIN_AMOUNT;
