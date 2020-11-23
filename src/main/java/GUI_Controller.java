@@ -54,7 +54,7 @@ public void GUI(){
             gui.addPlayer(player[i]);
         }
 
-    }*/
+    }
 
-    //public void rollDice();
+    //public void rollDice();*/
 }

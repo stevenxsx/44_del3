@@ -9,13 +9,13 @@ public class GUI_Fields {
         fields[i++] = new GUI_Start("Start", "Modtag M2", "Modtag M2 fra Banken, hver gang passerer eller lander på START", Color.WHITE, Color.BLACK);
         fields[i++] = new GUI_Street("BURGER-\nBAREN", "", "", "1M", Color.WHITE, Color.BLACK);
         fields[i++] = new GUI_Street("PIZZA-\nHUSET", "", "", "1M", Color.WHITE, Color.BLACK);
-        fields[i++] = new GUI_Chance("?", "Chance", "", Color.WHITE, Color.BLACK);
+        fields[i++] = new GUI_Chance("?", "CHANCE", "", Color.WHITE, Color.BLACK);
         fields[i++] = new GUI_Street("SLIK-\nBUTIKKEN", "", "", "1M", Color.WHITE, Color.BLACK);
         fields[i++] = new GUI_Street("ISKIOSKEN", "", "", "1M", Color.WHITE, Color.BLACK);
         fields[i++] = new GUI_Jail("default", "", "PÅ BESØG", "", Color.WHITE, Color.BLACK);
         fields[i++] = new GUI_Street("MUSEET", "", "", "2M", Color.WHITE, Color.BLACK);
         fields[i++] = new GUI_Street("BIBLIOTEKT", "", "", "2M", Color.WHITE, Color.BLACK);
-        fields[i++] = new GUI_Chance("?", "Chance", "", Color.WHITE, Color.BLACK);
+        fields[i++] = new GUI_Chance("?", "CHANCE", "", Color.WHITE, Color.BLACK);
         fields[i++] = new GUI_Street("SKARTER-\nPARKEN", "", "", "2M", Color.WHITE, Color.BLACK);
         fields[i++] = new GUI_Street("SWIMMING-\nPOOLEN", "", "", "2M", Color.WHITE, Color.BLACK);
         fields[i++] = new GUI_Refuge("default", "GRATIS", "PARKERING", "", Color.WHITE, Color.BLUE);

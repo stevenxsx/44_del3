@@ -3,7 +3,7 @@ import java.util.Random;
 public class ChanceCardController extends Field {
 
     //her vil jeg prøve at lave det så at classen henter kortene fra bunken (ChanceCard)
-   /* int i;
+    /*int i;
 
 
 
