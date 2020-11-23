@@ -12,7 +12,7 @@ public class Language {
     public String[] fieldDescriptionChance = {"Tag det øverste chancekort, læs det højt, og følg instruktionerne.\n"+
     "Læg dit brugte kort tilbage nederst i bunken."};
     public String[] fieldDescriptionStart ={""};
-    public String[] fieldDescriptionPåBesøg = {"dd"};
+    public String[] fieldDescriptionPåBesg = {"dd"};
     public String[] fieldDescriptionGåiFængsel = {""};
     public String[] fieldDescriptionGratisParkering = {"Du behøver ikke gøre noget, bare snup dig en pause"};
 
@@ -20,7 +20,7 @@ public class Language {
     public String[] chanceCard1 = {"Giv dette kort til BILEN, og tag et chancekort mere.\n"+
     "BIL: På din næste tur skal du drøne frem til et hvilket som helst ledigt felt og købe det. \n"+
     "Hvis der ikke er nogen ledige felter, skal du købe et fra en anden spiller"};
-    public String[] chanceCard2 = {"Ryk frem til START. Modtag "};....
+    public String[] chanceCard2 = {"Ryk frem til START. Modtag M2"};
     public String[] chanceCard3 = {"Ryk op til 5 felter frem"};
     public String[] chanceCard4 = {"GRATIS FELT!\n"+"Ryk frem til et orange felt. Hvis det er ledigt får du det GRATIS!\n"+
     "Ellers skal du BETALE leje til ejeren "};
@@ -41,7 +41,22 @@ public class Language {
     public String[] chanceCard13 = {"Giv dette kort til HUNDEN, og tag et chancekort mere.\n"+
     "HUND: På din næste tur skal du hoppe hen på et hvilket som helst ledigt felt og købe det.\n"+
     "Hvis der ikke er nogen ledige felter, skal du købe et fra en anden spiller!"};
+    public String[] chanceCard14 = {"Det er din fødselsdag!Alle giver dig M1!\n"+
+    "Tillykke med fødselsdagen!"};
+    public String[] chanceCard15 ={"GRATIS FELT!\n"+ "Ryk frem til et pink eller mørkeblåt felt. Hvis det er ledigt får du det gratis\n"+
+    "Ellers skal du BETALE leje til ejeren"};
+    public String[] chanceCard16 = {"Du har lavet alle dine lektier! Modtag M2 fra banken."};
+    public String[] chanceCard17 = {"GRATIS FELT!\n"+ "Ryk frem til et rødt felt. Hvis det er ledigt får du det GRATIS!\n"+
+    "Ellers skal du BETALE leje til ejeren"};
+    public String[] chanceCard18 = {"GRATIS FELT!\n"+ "Ryk frem til Skaterparken for at lave det perfekte grind\n!"+
+    "Hvis ingen ejer det får du det GRATIS. Ellers skal du betale leje til ejeren."};
+    public String[] chanceCard19 = {"GRATIS FELT!\n"+ "Ryk frem til et lyseblåt eller rødt felt. Hvis det er ledigt får du det GRATIS!\n"+
+    "Ellers skal du BETALE leje til ejeren"};
+    public String[] chanceCard20 = {"GRATIS FELT!\n"+ "Ryk frem til et brunt eller gult felt. Hvis det er ledigt får du det GRATIS!\n"+
+    "Ellers skal du betale leje til ejeren"};
     
+    
+
 
 
 
