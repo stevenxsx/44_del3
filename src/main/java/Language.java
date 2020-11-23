@@ -18,6 +18,7 @@ public class Language {
     public String[] enterAge = {"Angiv din alder"};
     public String[] choosePlayerFigur = {"Vælg din spillerfigur"};
     public String[] contineGame = {"Tryk enter og lad spillet starte"};
+    public String[] youngestPlayer = {"Tillykke du er den yngstes spiller og får lov at starte"};
 
 
     // Strings for landOnField()
@@ -26,11 +27,31 @@ public class Language {
     public String[] getFieldDescriptionEjetFelt = {"Du skal betale husleje til den spiller der ejer feltet\n"+ "Du skal betale det beløb der står på feltet"};
     public String[] isFree = {"Dette felt er ledigt"};
     public String[] getFieldDescriptionLedigtFelt = {"Du skal købe feltet!\n"+
-                                                     "Betal banken det det beløb, der står på feltet, og placér et af dine solgt-skilte på det farvede bånd"};
+                                                     "Betal banken det beløb, der står på feltet, og placér et af dine solgt-skilte på det farvede bånd"};
     public String[] getFieldDescriptionDobbeltEjetFelt = {"ejer dette felt og ejer også ejendommen med samme farve\n"+
                                                           "Du skal nu betale denne spiller husleje som er det dobbelte beløb, af hvad der står på feltet"};
-    public String[] landOnLegetoejsbutikken = {"Du landede på feltet Lejetøjsbutikken"};
-    public String[] landOnDyreHandlen = {"Du landede på feltet Dyrehandlen"};
+    public String[] legetoejsbutikken = {"Lejetøjsbutikken"};
+    public String[] dyreHandlen = {"Dyrehandlen"};
+    public String[] gaaIFaengsel = {"Gå i fængsel"};
+    public String[] bowlinghallen = {"Bowlinghallen"};
+    public String[] zoo = {"Du landede på feltet Zoologisk have"};
+    public String[] chance = {"Chance"};
+    public String[] vandland = {"Vandlandet"};
+    public String[] strandpromonaden = {"Strandpromonaden"};
+    public String[] start = {"Start"};
+    public String[] burgerbaren = {"Burgerbaren"};
+    public String[] pizzeriaet = {"Pizzeriaet"};
+    public String[] godtebutikken = {"Godtebutikken"};
+    public String[] iskiosken = {"Iskiosken"};
+    public String[] paaBesoeg = {"På besøg"};
+    public String[] museet = {"Museet"};
+    public String[] biblioteket = {"Biblioteket"};
+    public String[] skaterparken = {"Skaterparken"};
+    public String[] svoemmebassenget = {"Svømmebassenget"};
+    public String[] gratisParkering = {"Gratis parkering"};
+    public String[] spillehallen = {"Spillehallen"};
+    public String[] biografen = {"Biografen"};
+    
 
 
     // Strings for makeFields()
@@ -38,7 +59,7 @@ public class Language {
     "Læg dit brugte kort tilbage nederst i bunken."};
     public String[] fieldDescriptionStart ={"Du har passeret eller er landet på feltet START. Du modtager M2 fra banken"};
     public String[] fieldDescriptionPaaBesoeg = {"Bare rolig. Lander du her er du bare på besoeg"};
-    public String[] fieldDescriptionGaaiFaengsel = {"Gå lige i fængsel!\n"+ "Du passerer ikke START. Du modtager ikke M2.\n"+
+    public String[] fieldDescriptionGaaiFaengsel = {"Du passerer ikke START. Du modtager ikke M2.\n"+
                                                     "I starten af din næste tur skal du betale M1 eller bruge 'Du løslades uden omkostninger'-kortet."};
     public String[] fieldDescriptionGratisParkering = {"Du behøver ikke gøre noget her, bare snup dig en pause"};
 
@@ -97,11 +118,14 @@ public class Language {
 
     // Strings for turn()
     public String[] rolled = {"Du slog"};
-
+    public String[] youNowHave = {"Du har nu"};
+    public String[] coins = {"monopoly penge"};
 
 
     //Strings for checkForWin()
-    public String[] youWon = {"Tillykke! Du havde flest penge tilbage da din modspiller gik fallit.\n"+
+    public String[] countMoney = {"er gået fallit. Jeres penge tælles nu"};
+    public String[] congratulations = {"Tillykke!"};
+    public String[] youWon = {"Du havde flest penge tilbage da din modspiller gik fallit.\n"+
     "Du har vundet spillet"};
     public String[] goBankRupt = {"Åh nej....!! Du har ikke nok penge til at købe ejendommen eller betale husleje til din modspiller\n"+
     "Du er gået fallit og har tabt spillet"};
