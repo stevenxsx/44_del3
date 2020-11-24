@@ -39,7 +39,10 @@ public class Game {
         while (gameInProgress) { //Keeps game going until gameWon is called
             round();
             /**
+             * //for-loopet der skal styrer tur-systemet
              * for (int i = 0; i < Playerlist.length; i++) {
+             *
+             *
              *  //Her skal spillernes position baseret på terninger
              *  int diceSum = handleMovement(alleNavne[i], Playerlist[i], guiPlayers[i], die, die2);
              *
