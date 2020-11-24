@@ -1,6 +1,6 @@
 public class FieldJail extends Field {
     Player player;
-    private int timer;
+   
 
     public FieldJail(){}
 
@@ -8,7 +8,10 @@ public class FieldJail extends Field {
     public void goToJail(Player player){
         this.player=player;
         player.setPlayerPosition(10);
-        this.timer=0;
+        /**
+         * Her skal spilleren enten bruge sit get-out.of.jail kort, eller også
+         * så skal spillernen betale 1M og intet andet.
+         */
         player.setJailed(true);
     }
 
