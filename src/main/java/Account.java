@@ -1,4 +1,5 @@
 
+
 public class Account {
     private static int DEFAULT_COIN_AMOUNT;
     private static final int MIN_COIN_AMOUNT = 0;

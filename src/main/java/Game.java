@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class Game {
@@ -15,8 +16,7 @@ public class Game {
     boolean gameInProgress = true;
     Field[] list_of_fields;
     private static int selectedLanguage;
-    //Language language = new Language();
-
+    Language language = new Language();
 
     public void startGame() {
         System.out.println("Please select a language. Type 0 for English");
@@ -39,7 +39,7 @@ public class Game {
     }
 
     public void welcomeMessage() {
-        //System.out.println(language.welcomeMessage[selectedLanguage]);
+        System.out.println(language.welcomeMessage[selectedLanguage]);
 
     }
 
@@ -65,3 +65,6 @@ public class Game {
     public static int returnLanguage() { return selectedLanguage; }
 
 }
+
+
+

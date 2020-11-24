@@ -1,5 +1,4 @@
 
-
 public class Player {
     private String name;
     private Account account;
@@ -13,7 +12,9 @@ public class Player {
         return account;
     }
 
-    public void addCoins(int amount) { account.addCoins(amount); }
+    public boolean addCoins(int amount) {
+        return account.addCoins(amount);
+    }
 
     public void resetAccount() {
         account.reset();
