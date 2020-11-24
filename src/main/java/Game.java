@@ -9,7 +9,10 @@ public class Game {
     String typedText;
     String typedLanguage;
 
-    Dice dice1 = new Dice();
+    Dice die = new Dice();
+
+    Dice die2 = new Dice();
+
     Player player1;
     Player player2;
     Player currentPlayer;
@@ -35,6 +38,22 @@ public class Game {
 
         while (gameInProgress) { //Keeps game going until gameWon is called
             round();
+            /**
+             * for (int i = 0; i < Playerlist.length; i++) {
+             *  //Her skal spillernes position baseret på terninger
+             *  int diceSum = handleMovement(alleNavne[i], Playerlist[i], guiPlayers[i], die, die2);
+             *
+             * //de her skal håndtere hvad der sker når en spiller lander på et felt
+             * i = handleLandOnField(alleNavne, Playerlist, guiPlayers, i, diceSum);
+             *
+             * //den her skal opdatere spillernes position for alle spillere:
+             * updateGUICaracteren(Playerlist, guiPlayers);
+             *
+             * //Den her skal tjekke om spillet er færdigt, ved at undersøge om en af spillerne er gået fallit.
+             * if (Gameover(Playerlist)) break;
+             *
+             * }
+             */
         }
     }
 
