@@ -32,6 +32,9 @@ public class Game {
         welcomeMessage();
 
         //Select number of players (2-4)
+        /** det her lort burde virke.......
+         *  String spillere = gui.getUserSelection("Vælg antal spillere", "3", "4", "5", "6");
+         */
         //For-loop inputting the names into (player# = new Player(input))
 
         //Do stuff that sets up the GUI and puts all the players pieces at start, set their starting cash, etc etc.
