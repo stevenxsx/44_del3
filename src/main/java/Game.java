@@ -95,6 +95,10 @@ public class Game {
               //den her skal opdatere spillernes position for alle spillere:
                   updateGUIMoney(arrayPlayers, guiPlayers);
 
+                  //tjekker om den nuværende spiller skal i fængsel
+                  if (arrayPlayers[i].getJailed()) {
+                      handleJailOptions(allNames[i], arrayPlayers[i], guiPlayers[i]);
+                  }
               //Den her skal tjekke om spillet er færdigt, ved at undersøge om en af spillerne er gået fallit.
                   if (handleGameDone(arrayPlayers)) break;
 
@@ -105,7 +109,7 @@ public class Game {
     }
 
     private void handleJailOptions(String allNames, Player arrayPlayer, GUI_Player guiPlayer) {
-        while (arrayPlayer.isJailed()) {
+        while (arrayPlayer.getJailed()) {
             String jailMsg = gui.getUserButtonPressed(allNames + " har 2 muligheder", "Fængsel kort", "betal");
 
             if (jailMsg.equals("Fængsel kort")) {
@@ -168,7 +172,7 @@ public class Game {
 
         //adder spillerne til Listen
         for (int i = 0; i < allNames.length; i++) {
-            Player p = new Player(allNames[i], 0, 20, 0);
+            Player p = new Player(allNames[i], 0, 20, 0,false);
             arrayPlayers[i] = p;
         }
 

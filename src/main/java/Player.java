@@ -8,12 +8,14 @@ public class Player {
     private int numberOfEscapeCards;
     private int position;
     private int coins;
+    private boolean inJail;
 
-    public Player(String name, int position, int coins, int numberOfEscapeCards/*, int account*/) {
+    public Player(String name, int position, int coins, int numberOfEscapeCards, boolean inJail/*, int account*/) {
         this.name=name;
         this.position=position;
         this.coins = coins;
         this.numberOfEscapeCards = numberOfEscapeCards;
+        this.inJail = inJail;
 
     }
 
@@ -86,15 +88,19 @@ public class Player {
     public void minusJailCard (int number) {
         numberOfEscapeCards = numberOfEscapeCards - number;}
 
-    private boolean isJailed;
+   //private boolean isJailed;
 
-    public boolean isJailed() {
-        return isJailed;
-    }
+   //public boolean isJailed() {
+   //    return isJailed;
+   //}
 
-    public void setJailed(boolean jailed) {
-        isJailed = jailed;
-    }
+   //public void setJailed(boolean jailed) {
+   //    isJailed = jailed;
+   //}
+
+    public boolean getJailed(){ return inJail;}
+
+    public void setJailed(boolean inJail){this.inJail = inJail;}
 
     private int playerPosition;
 
