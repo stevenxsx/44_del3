@@ -118,10 +118,6 @@ public class Game {
                     continue;
                 }
             } else if (jailMsg.equals("betal")) {
-                if (arrayPlayer.getCoins() < 1) {
-                    gui.getUserButtonPressed("Du har ikke nok penge, prøv igen", "Fortsæt");
-                    continue;
-                } else {
                     arrayPlayer.addCoins(-1);
                     guiPlayer.setBalance(arrayPlayer.getCoins());
                     arrayPlayer.setJailed(false);
@@ -130,7 +126,7 @@ public class Game {
 
             }
         }
-    }
+
 
     private void SetupGame(int players, String[] allNames, Player[] arrayPlayers, GUI_Player[] guiPlayers) {
         //Valg af navne
