@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class Game {
@@ -9,14 +8,14 @@ public class Game {
     String typedText;
     String typedLanguage;
 
-    /*Dice dice1 = new Dice();
+    Dice dice1 = new Dice();
     Player player1;
     Player player2;
     Player currentPlayer;
     boolean gameInProgress = true;
     Field[] list_of_fields;
     private static int selectedLanguage;
-   Language language = new Language();
+    //Language language = new Language();
 
 
     public void startGame() {
@@ -26,8 +25,8 @@ public class Game {
             selectedLanguage = Integer.parseInt(typedLanguage);
         } else selectedLanguage = 0;
 
-        list_of_fields = FieldFactory.makeFields(selectedLanguage);
-        welcomeMessage();//hej
+        //list_of_fields = FieldFactory.makeFields(selectedLanguage);
+        welcomeMessage();
 
         //Select number of players (2-4)
         //For-loop inputting the names into (player# = new Player(input))
@@ -40,7 +39,7 @@ public class Game {
     }
 
     public void welcomeMessage() {
-        System.out.println(language.welcomeMessage[selectedLanguage]);
+        //System.out.println(language.welcomeMessage[selectedLanguage]);
 
     }
 
@@ -63,9 +62,6 @@ public class Game {
         //property and the highest wins. If that's also a tie, then fight to the death by fist.
     }
 
-    public static int returnLanguage() { return selectedLanguage; }*/
+    public static int returnLanguage() { return selectedLanguage; }
 
 }
-
-
-

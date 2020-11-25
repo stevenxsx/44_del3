@@ -1,21 +1,19 @@
 
-public class Player {
-    public final String name;
-    private final Account account;
-    private int Age;
 
-    public Player(String name, int numPlayers) {
-        this.name = name;
-        this.account = new Account(numPlayers);
-    }
+public class Player {
+    private String name;
+    private Account account;
+    private int Age;
+    private int color;
+    private boolean isWinner;
+
+    public Player() {}
 
     public Account getAccount() {
         return account;
     }
 
-    public boolean addCoins(int amount) {
-        return account.addCoins(amount);
-    }
+    public void addCoins(int amount) { account.addCoins(amount); }
 
     public void resetAccount() {
         account.reset();
@@ -29,7 +27,18 @@ public class Player {
         return account.getCoins();
     }
 
-    // SIMON
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setColor(int color) {
+        this.color = color;
+    }
+
+    public boolean isWinner() { return isWinner; }
+
+
+        // SIMON
 
     //Vi skal have en position og en boolean for om man er i fængsel ;)
     private int playerPosition;
