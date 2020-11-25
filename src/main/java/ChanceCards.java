@@ -1,20 +1,22 @@
+import gui_fields.GUI_Player;
+import gui_main.GUI;
 public class ChanceCards extends ChanceCardController {
 
     int cardNumber;
     Player player;
-    //GUI gui;
+    GUI gui;
     int turn;
     Player[] playerArray;
-    int total=0;
+    int total = 0;
     int arrayLength;
 
-    public ChanceCards(int cardNumber, Player player, /*GUI gui,*/ int i, Player[] playerArray, int arrayLength) {
-        this.cardNumber=cardNumber;
-        this.player=player;
-        //this.gui=gui;
-        this.turn=i;
-        this.arrayLength=arrayLength;
-        this.playerArray=playerArray;
+    public ChanceCards(int cardNumber, Player player, GUI gui, int i, Player[] playerArray, int arrayLength) {
+        this.cardNumber = cardNumber;
+        this.player = player;
+        this.gui = gui;
+        this.turn = i;
+        this.arrayLength = arrayLength;
+        this.playerArray = playerArray;
 
         // Ved ikke helt om der er en grund til at bruge gui her? Du skal jo ikke opdatere GUI'en, da den jo bare opdateres under game når chancekortet er blevet udført - Kat
 
@@ -24,7 +26,7 @@ public class ChanceCards extends ChanceCardController {
     //så nu man lander på ChanceCardControllerne, så vælger den et tilfældigt af de 20 eksistrende
     //chancekort som der er.
 
-    public void cardPile () {
+    public void cardPile() {
         switch (cardNumber) {
             case 1:
                 //Ryk frem til start
@@ -43,12 +45,12 @@ public class ChanceCards extends ChanceCardController {
             case 2:
                 //ryk fem felter frem
 
-                player.setPlayerPosition(player.getPlayerPosition()+5);
-                if (player.getPlayerPosition()>23){
+                player.setPlayerPosition(player.getPlayerPosition() + 5);
+                if (player.getPlayerPosition() > 23) {
 
-                    player.setPlayerPosition(player.getPlayerPosition()-23);
+                    player.setPlayerPosition(player.getPlayerPosition() - 23);
                     player.addCoins(2);
-                    }
+                }
                     /*(--------------)
                     Her skal der nok indsættes en gui-funktion der fortæller spilleren hvad der sker.
                     Har ikke en Gui-klasse, så gætter igen...
@@ -59,7 +61,7 @@ public class ChanceCards extends ChanceCardController {
             case 3:
                 //Du har spist for meget slik, betal 2M
 
-                player.addCoins(-2);
+                player.subtractMoney(2);
                         /*
 
                 (--------------)
@@ -82,12 +84,12 @@ public class ChanceCards extends ChanceCardController {
             case 5:
                 //Det er din fødselsdag, alle spiller giver dig 1M. n/ TILLYKKE MED FØDSELSDAGEN
 
-                    for (int i = 0;
-                         i < playerArray.length;
-                         i++) {
-                        playerArray[i].addCoins(-1);
-                    }
-                    player.addCoins(playerArray.length*1);
+                for (int i = 0;
+                     i < playerArray.length;
+                     i++) {
+                    playerArray[i].subtractMoney(1);
+                }
+                player.addCoins(playerArray.length*1);
                     /*
                 Her skal der nok indsættes en gui-funktion der fortæller spilleren hvad der sker.
                 Har ikke en Gui-klasse, så gætter igen...
@@ -105,10 +107,18 @@ public class ChanceCards extends ChanceCardController {
                 Har ikke en Gui-klasse, så gætter igen...
                 */
 
-                }
+            case 7:
+                //slip fri fra fængsel
+                player.setNumberOfEscapeCards(player.getNumberOfEscapeCards() + 1);
+                gui.getUserButtonPressed("Du har fået et Fri-fra-jail-kort, som du kan gemme og bruge hvis du havner i fængsel.", "Fortsæt");
+                gui.getUserButtonPressed("Du har nu " + player.getNumberOfEscapeCards() + "antal fri-fra-jail-kort", "Fortsæt");
+                break;
         }
-
+    }
+        public int getTurn () {
+            return turn;
         }
+    }
     /*Standartcommit
 Changes     Har lavet ChanceCard nr. ??, Men de andre nødvendige klasser
 mangler, så kaldemetoderne er sikkert noget sludder.
