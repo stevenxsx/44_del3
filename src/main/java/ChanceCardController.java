@@ -31,4 +31,6 @@ public class ChanceCardController extends Field {
     bliver extended og bruger den extendede ting. Effektivt gør det at ChanceCards er en kontroller af sig selv.
     Jeg er også lettere forevirret over selve formålet for controlleren? Jeg foreslår at samle ChanceCards og ChanceCardController ;)
     - Kat
+    Jeg for stod det heller ikke, men hjælpelæren hjalp mig med at sætte det op
+    - Simon
  */
