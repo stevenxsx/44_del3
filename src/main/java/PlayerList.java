@@ -1,18 +1,20 @@
 
 
 public class PlayerList {
-    private Player[] playerList;
+    private final Player[] playerList;
+    String[] stringNames;
 
-    public PlayerList(int number ) {
+    public PlayerList(int number, String[] names) {
+        stringNames = new String[names.length];
+        System.arraycopy(names, 0, stringNames, 0, names.length);
         playerList = new Player[number];
         for (int i = 0;i < number;i++)
-            playerList[i]=new Player();
+            playerList[i]=new Player(names[i]);
     }
 
     public void addPlayer(int antal){
-        String[] names = {"Steven","Gordon","Mike","Oline","Katrine ","Simon"};
         for (int i=0; i<antal;i++){
-            playerList[i].setName(names[i % names.length]);
+            playerList[i].setName(stringNames[i % stringNames.length]);
             playerList[i].setColor(i);
         }
     }
@@ -37,5 +39,13 @@ public class PlayerList {
     public int nextPlayer(int index){
         index = ++index % playerList.length;
         return index;
+    }
+
+    public String toString() {
+        StringBuilder returnStatement = new StringBuilder();
+        for(int i=0;i<playerList.length;i++) {
+            returnStatement.append("Player").append(i).append(" = ").append(playerList[i].getName()).append(".\n");
+        }
+        return returnStatement.toString();
     }
 }
