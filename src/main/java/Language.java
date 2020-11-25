@@ -19,6 +19,9 @@ public class Language {
     public String[] choosePlayerFigur = {"Vælg din spillerfigur"};
     public String[] contineGame = {"Tryk enter og lad spillet starte"};
     public String[] youngestPlayer = {"Tillykke du er den yngstes spiller og får lov at starte"};
+    public String[] playerAmount2 = {"I kæmper 2 imod hinanden og starter derfor ud med M20 hver"};
+    public String[] playerAmount3 = {"I kæmper 3 imod hinanden og starter derfor ud med M18 hver"};
+    public String[] playerAmount4 = {"I kæmper 4 imod hinanden og starter derfor ud med M16 hver"};
 
 
     // Strings for landOnField()
