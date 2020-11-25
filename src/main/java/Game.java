@@ -9,7 +9,7 @@ public class Game {
     String typedText;
     String typedLanguage;
 
-    Dice dice1 = new Dice();
+    /*Dice dice1 = new Dice();
     Player player1;
     Player player2;
     Player currentPlayer;
@@ -63,7 +63,7 @@ public class Game {
         //property and the highest wins. If that's also a tie, then fight to the death by fist.
     }
 
-    public static int returnLanguage() { return selectedLanguage; }
+    public static int returnLanguage() { return selectedLanguage; }*/
 
 }
 

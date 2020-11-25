@@ -7,7 +7,7 @@ import java.awt.*;
 public class GUITest {
     public static void main(String[] args) {
         GUI_Field[] fields = GUI_Fields.makeGUIFields();
-        GUI gui = new GUI(fields, Color.DARK_GRAY);
+        GUI gui = new GUI(fields, Color.WHITE);
 
 
     }
