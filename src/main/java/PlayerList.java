@@ -1,4 +1,4 @@
-
+import gui_fields.GUI_Car;
 
 public class PlayerList {
     private final Player[] playerList;
@@ -23,6 +23,10 @@ public class PlayerList {
 
     public Player getPlayer(int index){
         return playerList[index];
+    }
+
+    public GUI_Car getCar(int index) {
+        return playerList[index].getCar();
     }
 
     public boolean isWinner(){
