@@ -34,7 +34,7 @@ public class ChanceCards extends ChanceCardController {
             case 1:
                 //frem til start
 
-                player.setPlayerPosition(0);
+                player.setPosition(0);
                 player.addCoins(2);
                 gui.getUserButtonPressed("Du har trukket et chancekort, velkommen tilbage til starten.", "Fortsæt");
                         /*
@@ -49,13 +49,14 @@ public class ChanceCards extends ChanceCardController {
 
             case 2:
                 //ryk fem felter frem
-                gui.getUserButtonPressed("Du har trukket et chancekort, ryk 5 felter frem.", "Fortsæt");
-                player.setPlayerPosition(player.getPlayerPosition() + 5);
+
+                player.setPosition(player.getPlayerPosition() + 5);
                 if (player.getPlayerPosition() > 23) {
 
-                    player.setPlayerPosition(player.getPlayerPosition() - 23);
+                    player.setPosition(player.getPlayerPosition() - 23);
                     player.addCoins(2);
                 }
+                gui.getUserButtonPressed("Du har trukket et chancekort, ryk 5 felter frem.", "Fortsæt");
                     /*(--------------)
                     Her skal der nok indsættes en gui-funktion der fortæller spilleren hvad der sker.
                     Har ikke en Gui-klasse, så gætter igen...
@@ -65,8 +66,9 @@ public class ChanceCards extends ChanceCardController {
 
             case 3:
                 //Du har spist for meget slik, betal 2M
-                gui.getUserButtonPressed("Du har trukket et chancekort, du har spist for meget slik, betal 2M", "Fortsæt");
                 player.subtractMoney(2);
+                gui.getUserButtonPressed("Du har trukket et chancekort, du har spist for meget slik, betal 2M", "Fortsæt");
+
                         /*
 
                 (--------------)
@@ -76,8 +78,9 @@ public class ChanceCards extends ChanceCardController {
 
             case 4:
                 //Ryk frem til Strandpromaden
+                player.setPosition(23);
                 gui.getUserButtonPressed("Du har trukket et chancekort, ryk frem til Strandpromaden", "Fortsæt");
-                player.setPlayerPosition(23);
+
                 /*
                 (--------------)
                 Her skal der nok indsættes en gui-funktion der fortæller spilleren hvad der sker.
