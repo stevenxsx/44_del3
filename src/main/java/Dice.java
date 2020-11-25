@@ -13,4 +13,6 @@ public class Dice {
     public int getEyeValue() {
         return eyeValue;
     }
+
 }
+

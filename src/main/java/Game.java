@@ -1,35 +1,70 @@
+
+import gui_fields.GUI_Field;
+import gui_fields.GUI_Player;
+import gui_main.GUI;
+
+import java.awt.*;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Game {
 
-    Scanner typeName = new Scanner(System.in);
-    Scanner typeLanguage = new Scanner(System.in);
-    Scanner typeEnter = new Scanner(System.in);
-    String typedText;
-    String typedLanguage;
-
-    Dice dice1 = new Dice();
-    Player player1;
-    Player player2;
+    Dice die = new Dice();
+    int numberOfPlayers;
+    PlayerList players;
+    int previousPlacement = 0;
+    int currentPlacement = 0;
     Player currentPlayer;
     boolean gameInProgress = true;
-    Field[] list_of_fields;
     private static int selectedLanguage;
-    //Language language = new Language();
+    Language language = new Language();
+    GUI gui;
 
+    public Game() {
+        GUI_Field[] fields = GUI_Fields.makeGUIFields(0);
+        for (int i = 0; i < fields.length; i++) {
+            fields[i].setBackGroundColor(new Color(255,255,255));
+        }
+        gui = new GUI(fields, Color.WHITE); //Keep this as a light color because messages use dark gray text!
+
+
+    }
 
     public void startGame() {
-        System.out.println("Please select a language. Type 0 for English");
-        typedLanguage = typeLanguage.nextLine();
-        if (typedLanguage.equals("0")) { //Add more statements for additional languages
-            selectedLanguage = Integer.parseInt(typedLanguage);
-        } else selectedLanguage = 0;
+        //welcome message
+        gui.showMessage("Hello and welcome Wack Monopoly. I'm sorry to hear that you've been forced to play this pitiful excuse of a game. Do try to enjoy yourself regardless and good" +
+                " luck beating the 5 year-old you're inevitably facing!");
+        //language selection
+        if (gui.getUserSelection("Please select a language!","English","Danish","Orc","Chalcatongo Mixtec (dont pick please)").equals("English")) {
+            System.out.println("Language Unchanged - English");
+        }
+        else if (gui.getUserSelection("Please select a language!","English","Danish","Orc","Chalcatongo Mixtec (dont pick please)").equals("Danish")) {
+            //remake GUI with new language
+            System.out.println("Language Change - Danish");
+        }
 
-        //list_of_fields = FieldFactory.makeFields(selectedLanguage);
-        welcomeMessage();
+        //select number of players
+        numberOfPlayers = Integer.parseInt(gui.getUserSelection("Please select a number of players!","1","2","3","4"));
+        String[] playerNames = new String[numberOfPlayers];
+        for (int i = 0; i < numberOfPlayers; i++) {
+            playerNames[i] = gui.getUserString("PLease enter the name of the " + (i + 1) + ". player");
+        }
 
-        //Select number of players (2-4)
-        //For-loop inputting the names into (player# = new Player(input))
+        players = new PlayerList(numberOfPlayers,playerNames);
+        //System.out.println(Arrays.toString(playerNames)); //Debugging!
+        //System.out.println(players.toString()); //Debugging
+
+        //code for placing a car somewhere
+        currentPlacement = 10;
+        GUI_Player player = new GUI_Player("Steven", 2000);
+        gui.addPlayer(player);
+        GUI_Field currentField = gui.getFields()[currentPlacement];
+        currentField.setCar(player, true);
+
+        //code for moving car somewhere
+        gui.getFields()[currentPlacement].setCar(player, true);
+        gui.getFields()[previousPlacement].setCar(player, false);
+
 
         //Do stuff that sets up the GUI and puts all the players pieces at start, set their starting cash, etc etc.
 
@@ -39,7 +74,7 @@ public class Game {
     }
 
     public void welcomeMessage() {
-        //System.out.println(language.welcomeMessage[selectedLanguage]);
+        System.out.println(language.welcomeMessage[selectedLanguage]);
 
     }
 
@@ -65,3 +100,6 @@ public class Game {
     public static int returnLanguage() { return selectedLanguage; }
 
 }
+
+
+

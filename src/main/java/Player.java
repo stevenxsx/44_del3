@@ -7,7 +7,9 @@ public class Player {
     private int color;
     private boolean isWinner;
 
-    public Player() {}
+    public Player(String name) {
+        this.name = name;
+    }
 
     public Account getAccount() {
         return account;
@@ -30,6 +32,8 @@ public class Player {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getName() { return this.name; }
 
     public void setColor(int color) {
         this.color = color;
@@ -65,9 +69,7 @@ public class Player {
         setPlayerPosition(playerPosition + amount);
     }
 
-    public int getPlayerPosition() {
-        return playerPosition;
-    }
+    public int getPlayerPosition() { return playerPosition; }
 
     private boolean isJailed;
 
@@ -75,7 +77,5 @@ public class Player {
         return isJailed;
     }
 
-    public void setJailed(boolean jailed) {
-        isJailed = jailed;
-    }
+    public void setJailed(boolean jailed) { isJailed = jailed; }
 }
