@@ -12,7 +12,7 @@ public class Game {
 
     private GUI_Field[] fields = guiBoard.makeGUIFields();
 
-    private GUI gui = new GUI(fields, new Color(240, 255, 245));
+    private GUI gui = new GUI(fields, new Color(222, 222, 222));
 
     GUI_Car[] G_cars = GUI_Cars.makeCars();
 
