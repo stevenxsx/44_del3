@@ -30,25 +30,26 @@ public class Language {
                                                      "Betal banken det beløb, der står på feltet, og placér et af dine solgt-skilte på det farvede bånd"};
     public String[] getFieldDescriptionDobbeltEjetFelt = {"ejer dette felt og ejer også ejendommen med samme farve\n"+
                                                           "Du skal nu betale denne spiller husleje som er det dobbelte beløb, af hvad der står på feltet"};
-    public String[] legetoejsbutikken = {"Lejetøjsbutikken"};
+    public String[] legetoejsbutikken = {"Lejetøjs-\n"+ "butikken"};
     public String[] dyreHandlen = {"Dyrehandlen"};
     public String[] gaaIFaengsel = {"Gå i fængsel"};
-    public String[] bowlinghallen = {"Bowlinghallen"};
-    public String[] zoo = {"Du landede på feltet Zoologisk have"};
+    public String[] bowlinghallen = {"Bowling-\n"+ "hallen"};
+    public String[] zoo = {"Zoo"};
     public String[] chance = {"Chance"};
     public String[] vandland = {"Vandlandet"};
-    public String[] strandpromonaden = {"Strandpromonaden"};
+    public String[] strandpromonaden = {"Strand-\n" + "promonaden"};
     public String[] start = {"Start"};
     public String[] burgerbaren = {"Burgerbaren"};
     public String[] pizzeriaet = {"Pizzeriaet"};
-    public String[] slikkebutikken = {"Slikkebutikken"};
+    public String[] slikkebutikken = {"Slikke-\n" + "butikken"};
     public String[] iskiosken = {"Iskiosken"};
     public String[] paaBesoeg = {"På besøg"};
     public String[] museet = {"Museet"};
     public String[] biblioteket = {"Biblioteket"};
     public String[] skaterparken = {"Skaterparken"};
-    public String[] svoemmebassenget = {"Svømmebassenget"};
-    public String[] gratisParkering = {"Gratis parkering"};
+    public String[] svoemmebassenget = {"Svømme-\n" + "bassenget"};
+    public String[] gratis = {"Gratis"};
+    public String[] parkering = {"Parkering"};
     public String[] spillehallen = {"Spillehallen"};
     public String[] biografen = {"Biografen"};
     
