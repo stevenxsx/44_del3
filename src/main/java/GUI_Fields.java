@@ -3,8 +3,8 @@ import gui_fields.GUI_Field;
 import java.awt.*;
 
 public class GUI_Fields {
+   static GUI_Field[] fields = new GUI_Field[24]; // moved this line out of makeGui_fields
     public static GUI_Field[] makeGUIFields() {
-        GUI_Field[] fields = new GUI_Field[24];
 
         int i = 0;
         fields[i++] = new GUI_Start("Start", "Modtag M2", "Modtag M2 fra Banken, hver gang passerer eller lander på START", Color.WHITE, Color.BLACK);
