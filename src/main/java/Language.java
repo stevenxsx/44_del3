@@ -41,7 +41,7 @@ public class Language {
     public String[] start = {"Start"};
     public String[] burgerbaren = {"Burgerbaren"};
     public String[] pizzeriaet = {"Pizzeriaet"};
-    public String[] godtebutikken = {"Godtebutikken"};
+    public String[] slikkebutikken = {"Slikkebutikken"};
     public String[] iskiosken = {"Iskiosken"};
     public String[] paaBesoeg = {"På besøg"};
     public String[] museet = {"Museet"};
