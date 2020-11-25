@@ -5,16 +5,41 @@ public class Player {
     private int Age;
     private int color;
     private boolean isWinner;
+    private int numberOfEscapeCards;
+    private int position;
+    private int coins;
 
-    public Player() {}
+    public Player(String name, int position, int coins, int numberOfEscapeCards/*, int account*/) {
+        this.name=name;
+        this.position=position;
+        this.coins = coins;
+        this.numberOfEscapeCards = numberOfEscapeCards;
+
+    }
+
+    //Henter Strengen "navn"
+    public String getName() {
+        return name;
+    }
+
+    //Henter int'et "coins"
+    public int getcoins() {
+        return coins;
+    }
+
+    public int getPosition(){
+        return position;
+    }
+
+    public void setPosition(int setPosition){position= setPosition; }
 
     public Account getAccount() {
         return account;
     }
 
-    public boolean addCoins(int amount) {
-        return account.addCoins(amount);
-    }
+    //public boolean addCoins(int amount) {
+    //    return account.addCoins(amount);
+    //}
 
     public void resetAccount() {
         account.reset();
@@ -25,7 +50,17 @@ public class Player {
     }  */
 
     public int getCoins() {
-        return account.getCoins();
+        return coins;
+    }
+
+    //Plusser
+    public void addCoins(int totalPoint) {
+        coins = coins + totalPoint;
+    }
+
+    //Minusser
+    public void subtractMoney(int totalPoint) {
+        coins = coins - totalPoint;
     }
 
     public void setName(String name) {
@@ -42,6 +77,25 @@ public class Player {
         // SIMON
 
     //Vi skal have en position og en boolean for om man er i fængsel ;)
+    public int setNumberOfEscapeCards(int number) {
+        numberOfEscapeCards = number;
+        return numberOfEscapeCards;
+    }
+    public int getNumberOfEscapeCards(){return numberOfEscapeCards;}
+
+    public void minusJailCard (int number) {
+        numberOfEscapeCards = numberOfEscapeCards - number;}
+
+    private boolean isJailed;
+
+    public boolean isJailed() {
+        return isJailed;
+    }
+
+    public void setJailed(boolean jailed) {
+        isJailed = jailed;
+    }
+
     private int playerPosition;
 
     public void setPlayerPosition(int position){
@@ -67,16 +121,8 @@ public class Player {
     }
 
     public int getPlayerPosition() {
+
         return playerPosition;
     }
 
-    private boolean isJailed;
-
-    public boolean isJailed() {
-        return isJailed;
-    }
-
-    public void setJailed(boolean jailed) {
-        isJailed = jailed;
-    }
 }
