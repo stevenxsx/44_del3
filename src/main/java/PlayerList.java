@@ -1,12 +1,12 @@
 
-
+/*
 public class PlayerList {
     private Player[] playerList;
 
     public PlayerList(int number ) {
         playerList = new Player[number];
         for (int i = 0;i < number;i++)
-            playerList[i]=new Player();
+            playerList[i]=new Playerd();
     }
 
     public void addPlayer(int antal){
@@ -39,3 +39,4 @@ public class PlayerList {
         return index;
     }
 }
+*/
