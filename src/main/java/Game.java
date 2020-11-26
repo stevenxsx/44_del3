@@ -22,9 +22,8 @@ public class Game {
 
     public Game() {
         GUI_Field[] fields = GUI_Fields.makeGUIFields(0);
-        for (int i = 0; i < fields.length; i++) {
-            fields[i].setBackGroundColor(new Color(255,255,255));
-        }
+
+
         gui = new GUI(fields, Color.WHITE); //Keep this as a light color because messages use dark gray text!
 
 

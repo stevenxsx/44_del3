@@ -33,6 +33,9 @@ public class GUI_Fields {
         fields[i++] = new GUI_Chance("?", l.chance[j], l.fieldDescriptionChance[j], Color.WHITE, Color.BLACK);
         fields[i++] = new GUI_Street(l.vandland[j], "M5", "", "5M", new Color(0, 76,153), Color.BLACK);
         fields[i] = new GUI_Street(l.strandpromonaden[j], "M5", "", "5M", new Color(0, 76,153), Color.BLACK);
+
         return fields;
     }
+
+
 }
