@@ -10,9 +10,7 @@ public class Dice {
 
         return eyeValue;
     }
-    public int getEyeValue() {
-        return eyeValue;
-    }
-
+    //public int getEyeValue() {
+    //    return eyeValue;
+    //}
 }
-
