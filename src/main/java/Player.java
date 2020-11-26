@@ -113,7 +113,7 @@ public class Player {
 
     public void setJailed(boolean inJail){this.inJail = inJail;}
 
-    private int playerPosition;
+   // private int playerPosition;
 
    //public void setPlayerPosition(int position){
    //    if (position < 0) {
@@ -129,17 +129,12 @@ public class Player {
  //   * method used to move player positions, as well as making sure it continues to move after one round.
  //   * @param amount number of fields to move
  //   */
- // //public void movePlayerPosition(int amount){
-   //    if (playerPosition + amount > 23) { // Making sure players can go in circles.
-   //        amount = playerPosition + amount - 23;
-   //        setPlayerPosition(0);
-   //    }
-   //    setPlayerPosition(playerPosition + amount);
-   //}
+        public void movePlayerPosition(int amount){
+        position = ((position+amount)%23);
+        }
 
-    public int getPlayerPosition() {
+//   public int getPlayerPosition() {
 
-        return playerPosition;
-    }
+//       return playerPosition;
+ }
 
-}

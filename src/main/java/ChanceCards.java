@@ -48,15 +48,15 @@ public class ChanceCards extends ChanceCardController {
 
 
             case 2:
-                //ryk fem felter frem
-
-                player.setPosition(player.getPlayerPosition() + 5);
-                if (player.getPlayerPosition() > 23) {
-
-                    player.setPosition(player.getPlayerPosition() - 23);
+                //ryk op til fem felter frem
+                String fremtil = gui.getUserSelection("Du har trukket et chancekort, ryk op til 5 felter frem.", "1", "2", "3", "4", "5");
+                int Fremtil = Integer.parseInt(fremtil);
+                player.setPosition(player.getPosition() + Fremtil);
+                if (player.getPosition() > 23) {
+                    player.setPosition(player.getPosition() - 23);
                     player.addCoins(2);
                 }
-                gui.getUserButtonPressed("Du har trukket et chancekort, ryk 5 felter frem.", "Fortsæt");
+                gui.getUserButtonPressed("Sådan du rykkede frem lad os spille videre", "Fortsæt");
                     /*(--------------)
                     Her skal der nok indsættes en gui-funktion der fortæller spilleren hvad der sker.
                     Har ikke en Gui-klasse, så gætter igen...
