@@ -10,7 +10,7 @@ public class Player {
     private int coins;
     private boolean inJail;
 
-    public Player(String name, int position, int coins, int numberOfEscapeCards, boolean inJail/*, int account*/) {
+    public Player(String name, int position, int coins, int numberOfEscapeCards, boolean inJail, boolean isWinner/*, int account*/) {
         this.name=name;
         this.position=position;
         this.coins = coins;
@@ -73,8 +73,12 @@ public class Player {
     //    this.color = color;
     //}
 //
-    public boolean isWinner() { return isWinner; }
 
+    //public boolean getWinner(){ return isWinner;}
+//
+    //public void setWinner(boolean isWinner){
+    //    this.isWinner = isWinner;
+    //}
 
         // SIMON
 

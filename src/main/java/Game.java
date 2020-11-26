@@ -100,7 +100,9 @@ public class Game {
                       handleJailOptions(allNames[i], arrayPlayers[i], guiPlayers[i]);
                   }
               //Den her skal tjekke om spillet er færdigt, ved at undersøge om en af spillerne er gået fallit.
-                  if (handleGameDone(arrayPlayers)) break;
+                  if (handleGameDone(arrayPlayers))
+                      gui.getUserButtonPressed("Vi har en taber, spilleren med højeste pengebeholdning er VINDEREN","Fortsæt");
+                      break;
 
               }
 
@@ -172,7 +174,7 @@ public class Game {
 
         //adder spillerne til Listen
         for (int i = 0; i < allNames.length; i++) {
-            Player p = new Player(allNames[i], 0, 20, 0,false);
+            Player p = new Player(allNames[i], 0, 20, 0,false,false);
             arrayPlayers[i] = p;
         }
 
