@@ -1,4 +1,4 @@
-
+import gui_fields.GUI_Car;
 
 public class Player {
     private String name;
@@ -6,6 +6,8 @@ public class Player {
     private int Age;
     private int color;
     private boolean isWinner;
+    private GUI_Car car = new GUI_Car();
+    private int getOutOfJailFreeCards = 0;
 
     public Player(String name) {
         this.name = name;
@@ -35,6 +37,10 @@ public class Player {
 
     public String getName() { return this.name; }
 
+    public GUI_Car getCar() {
+        return car;
+    }
+
     public void setColor(int color) {
         this.color = color;
     }
@@ -61,21 +67,31 @@ public class Player {
      * method used to move player positions, as well as making sure it continues to move after one round.
      * @param amount number of fields to move
      */
-    public void movePlayerPosition(int amount){
-        if (playerPosition + amount > 23) { // Making sure players can go in circles.
+    public void movePlayer(int amount){
+        /*if (playerPosition + amount > 23) { // Making sure players can go in circles.
             amount = playerPosition + amount - 23;
             setPlayerPosition(0);
         }
-        setPlayerPosition(playerPosition + amount);
+        setPlayerPosition(playerPosition + amount);*/
+        //det ovenover kan skrives sådan her.
+        playerPosition = ((playerPosition + amount) % 23);
     }
 
     public int getPlayerPosition() { return playerPosition; }
 
-    private boolean isJailed;
+    private boolean isJailed = false;
 
     public boolean isJailed() {
         return isJailed;
     }
 
     public void setJailed(boolean jailed) { isJailed = jailed; }
+
+    public boolean hasJailCard() {
+        return getOutOfJailFreeCards > 0;
+    }
+
+    public void changeJailCard(int cards) {
+        getOutOfJailFreeCards = getOutOfJailFreeCards + cards;
+    }
 }

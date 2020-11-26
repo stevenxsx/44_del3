@@ -1,4 +1,5 @@
 
+import gui_fields.GUI_Car;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
 import gui_main.GUI;
@@ -7,22 +8,27 @@ import java.awt.*;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import static java.awt.Color.GREEN;
+
 public class Game {
 
+    int startBalance = 2000;
     Dice die = new Dice();
     int numberOfPlayers;
     PlayerList players;
+    GUI_Player[] guiPlayers;
     int previousPlacement = 0;
     int currentPlacement = 0;
     Player currentPlayer;
+    GUI_Player currentGUIPlayer;
     boolean gameInProgress = true;
     private static int selectedLanguage;
     Language language = new Language();
     GUI gui;
+    GUI_Field currentField;
 
     public Game() {
         GUI_Field[] fields = GUI_Fields.makeGUIFields(0);
-
 
         gui = new GUI(fields, Color.WHITE); //Keep this as a light color because messages use dark gray text!
 
@@ -31,8 +37,7 @@ public class Game {
 
     public void startGame() {
         //welcome message
-        gui.showMessage("Hello and welcome Wack Monopoly. I'm sorry to hear that you've been forced to play this pitiful excuse of a game. Do try to enjoy yourself regardless and good" +
-                " luck beating the 5 year-old you're inevitably facing!");
+        gui.showMessage("Welcome Message :)");
         //language selection
         if (gui.getUserSelection("Please select a language!","English","Danish","Orc","Chalcatongo Mixtec (dont pick please)").equals("English")) {
             System.out.println("Language Unchanged - English");
@@ -49,11 +54,23 @@ public class Game {
             playerNames[i] = gui.getUserString("PLease enter the name of the " + (i + 1) + ". player");
         }
 
+        //creates an array of Player objects and assigns each one their name.
         players = new PlayerList(numberOfPlayers,playerNames);
         //System.out.println(Arrays.toString(playerNames)); //Debugging!
         //System.out.println(players.toString()); //Debugging
 
-        //code for placing a car somewhere
+        //creates an array of GUI_Player objects. Sets their name, starting money, and car.
+        guiPlayers = new GUI_Player[numberOfPlayers];
+        for (int i = 0; i < numberOfPlayers; i++) {
+            guiPlayers[i] = new GUI_Player(players.getPlayer(i).getName(), startBalance, players.getPlayer(i).getCar());
+        }
+
+        while (gameInProgress) { //Keeps game going until gameWon is called
+            round();
+        }
+
+
+        /*code for placing a car somewhere
         currentPlacement = 10;
         GUI_Player player = new GUI_Player("Steven", 2000);
         gui.addPlayer(player);
@@ -62,26 +79,20 @@ public class Game {
 
         //code for moving car somewhere
         gui.getFields()[currentPlacement].setCar(player, true);
-        gui.getFields()[previousPlacement].setCar(player, false);
-
-
-        //Do stuff that sets up the GUI and puts all the players pieces at start, set their starting cash, etc etc.
-
-        while (gameInProgress) { //Keeps game going until gameWon is called
-            round();
-        }
-    }
-
-    public void welcomeMessage() {
-        System.out.println(language.welcomeMessage[selectedLanguage]);
+        gui.getFields()[previousPlacement].setCar(player, false);*/
 
     }
+
 
     public void round() {
         //for-loop each player, call turn()
+
+        for (int i = 0; i < numberOfPlayers; i++) {
+            turn(i);
+        }
     }
 
-    public void turn() {
+    public void turn(int player) {
         //roll the die and instantly move that far.
         //check if you passed start, and what you landed on.
         //Do stuff depending on where you landed:
@@ -89,6 +100,30 @@ public class Game {
         //2. Special fields: Start, Chance, Go to Jail, Just visiting haha. Free parking.
         // MAKE SURE TO CHECK IF YOU CAN AFFORD TO DO EACH AND EVERY ACTION. call endGame() if you can't!
 
+        currentPlayer = players.getPlayer(player);
+        currentGUIPlayer = guiPlayers[player];
+        if (!currentPlayer.isJailed()) {
+            currentPlayer.movePlayer(die.roll());
+        }
+        else {
+            //pay 1 money or use get out of jail free card and call turn() again.
+            if (currentPlayer.hasJailCard()) {
+                currentPlayer.changeJailCard(-1);
+                currentPlayer.setJailed(false);
+                turn(player);
+            }
+         }
+
+
+        currentField = gui.getFields()[currentPlayer.getPlayerPosition()]; //sets position on gui
+        currentField.setCar(currentGUIPlayer, true); //sets gui player's position on currentField
+
+        gameWon();
+
+    }
+
+    public void gameWon() {
+        gameInProgress = false;
     }
 
     public void endGame() {
