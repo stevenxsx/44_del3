@@ -283,7 +283,7 @@ private int handleChanceCard(Player[] arrayPlayers, int i, Field currentField, C
         }
     }
     private boolean handleGameDone(Player[] arrayPlayers) {
-        for (int i = 0; i <arrayPlayers.length-1 ; i++) {
+        for (int i = 0; i <arrayPlayers.length ; i++) {
             if (arrayPlayers[i].getCoins()<1){
                 gameOver = true;
             }
