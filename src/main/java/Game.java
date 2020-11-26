@@ -37,8 +37,6 @@ public class Game {
     String typedLanguage;
 
 
-
-
     Player player1;
     Player player2;
     Player currentPlayer;
@@ -61,17 +59,17 @@ public class Game {
         //Valg af antal spillere inde i GUI
         String players = gui.getUserSelection("Vælg antal spillere", "2", "3", "4");
         int numberOfPlayers = Integer.parseInt(players);
-        
+
 
         //Skaber arrays for navne, spillere og GUI spillere.
-        String[] allNames =new String[numberOfPlayers];
+        String[] allNames = new String[numberOfPlayers];
         Player[] arrayPlayers = new Player[numberOfPlayers];
         GUI_Player[] guiPlayers = new GUI_Player[numberOfPlayers];
 
         //adder navne, adder spillere til listen og setup GUI
         SetupGame(numberOfPlayers, allNames, arrayPlayers, guiPlayers);
-        
-        
+
+
         //Select number of players (2-4)
         /** det her lort burde virke.......
          *  String spillere = gui.getUserSelection("Vælg antal spillere", "3", "4", "5", "6");
@@ -82,29 +80,29 @@ public class Game {
 
         while (!gameOver) { //Keeps game going until gameWon is called
 
-              //for-loopet der skal styrer tur-systemet
-              for (int i = 0; i < arrayPlayers.length; i++) {
+            //for-loopet der skal styrer tur-systemet
+            for (int i = 0; i < arrayPlayers.length; i++) {
 
 
-               //Her skal spillernes position baseret på terninger
-               int diceSum = handleMovement(allNames[i], arrayPlayers[i], guiPlayers[i], die);
+                //Her skal spillernes position baseret på terninger
+                int diceSum = handleMovement(allNames[i], arrayPlayers[i], guiPlayers[i], die);
 
-              //de her skal håndtere hvad der sker når en spiller lander på et felt
-              i = handleLandOnField(allNames, arrayPlayers, guiPlayers, i, diceSum);
+                //de her skal håndtere hvad der sker når en spiller lander på et felt
+                i = handleLandOnField(allNames, arrayPlayers, guiPlayers, i, diceSum);
 
-              //den her skal opdatere spillernes position for alle spillere:
-                  updateGUIMoney(arrayPlayers, guiPlayers);
+                //den her skal opdatere spillernes position for alle spillere:
+                updateGUIMoney(arrayPlayers, guiPlayers);
 
-                  //tjekker om den nuværende spiller skal i fængsel
-                  if (arrayPlayers[i].getJailed()) {
-                      handleJailOptions(allNames[i], arrayPlayers[i], guiPlayers[i]);
-                  }
-              //Den her skal tjekke om spillet er færdigt, ved at undersøge om en af spillerne er gået fallit.
-                  if (handleGameDone(arrayPlayers))
-                      gui.getUserButtonPressed("Vi har en taber, spilleren med højeste pengebeholdning er VINDEREN","Fortsæt");
-                      break;
-
-              }
+                //tjekker om den nuværende spiller skal i fængsel
+                if (arrayPlayers[i].getJailed()) {
+                    handleJailOptions(allNames[i], arrayPlayers[i], guiPlayers[i]);
+                }
+                //Den her skal tjekke om spillet er færdigt, ved at undersøge om en af spillerne er gået fallit.
+                if (handleGameDone(arrayPlayers)) {
+                    gui.getUserButtonPressed("Vi har en taber, spilleren med højeste pengebeholdning er VINDEREN", "Fortsæt");
+                    break;
+                }
+            }
 
         }
         //"Spillet er slut, spilleren med det højeste antal point har vundet."
@@ -124,14 +122,14 @@ public class Game {
                     continue;
                 }
             } else if (jailMsg.equals("betal")) {
-                    arrayPlayer.addCoins(-1);
-                    guiPlayer.setBalance(arrayPlayer.getCoins());
-                    arrayPlayer.setJailed(false);
-                }
-
-
+                arrayPlayer.addCoins(-1);
+                guiPlayer.setBalance(arrayPlayer.getCoins());
+                arrayPlayer.setJailed(false);
             }
+
+
         }
+    }
 
 
     private void SetupGame(int players, String[] allNames, Player[] arrayPlayers, GUI_Player[] guiPlayers) {
@@ -174,13 +172,13 @@ public class Game {
 
         //adder spillerne til Listen
         for (int i = 0; i < allNames.length; i++) {
-            Player p = new Player(allNames[i], 0, 20, 0,false,false);
+            Player p = new Player(allNames[i], 0, 20, 0, false/*,false*/);
             arrayPlayers[i] = p;
         }
 
         //skal lave en metode der skaber gui_brikker/spillerne på boardet
         for (int i = 0; i < arrayPlayers.length; i++) {
-            guiPlayers[i]=(new GUI_Player(arrayPlayers[i].getName(), arrayPlayers[i].getCoins(), G_cars[i]));
+            guiPlayers[i] = (new GUI_Player(arrayPlayers[i].getName(), arrayPlayers[i].getCoins(), G_cars[i]));
             gui.addPlayer(guiPlayers[i]);
             fields[0].setCar(guiPlayers[i], true);
 
@@ -231,25 +229,25 @@ public class Game {
                 handleJailField(arrayPlayers[i], guiPlayers[i], jailField);
             }
             otherField = board[arrayPlayers[i].getPosition()];
-        } while (otherField!=currentField);
+        } while (otherField != currentField);
 
         return i;
     }
 
 
-private int handleChanceCard(Player[] arrayPlayers, int i, Field currentField, ChanceCardController chanceField, GUI_Player guiPlayer) {
-    //opdatere bilernes position i tilfæde af at en af chancekortene rykker en spiller
-    oldField = arrayPlayers[i].getPosition();
-    i = chanceField.getCard(arrayPlayers[i], gui, i, arrayPlayers.length, arrayPlayers);
-    //hvis spilleren bliver sendt til jail, så køre goToJail-metoden.
-    currentField=board[arrayPlayers[i].getPosition()];
-    if(currentField instanceof FieldJail){ ((FieldJail)currentField).goToJail(arrayPlayers[i]);}
-    fields[oldField].setCar(guiPlayer, false);
-    newField = arrayPlayers[i].getPosition();
-    fields[newField].setCar(guiPlayer, true);
-    guiPlayer.setBalance(arrayPlayers[i].getCoins());
-    return i;
-}
+    private int handleChanceCard(Player[] arrayPlayers, int i, Field currentField, ChanceCardController chanceField, GUI_Player guiPlayer) {
+        //opdatere bilernes position i tilfæde af at en af chancekortene rykker en spiller
+        oldField = arrayPlayers[i].getPosition();
+        i = chanceField.getCard(arrayPlayers[i], gui, i, arrayPlayers.length, arrayPlayers);
+        //hvis spilleren bliver sendt til jail, så køre goToJail-metoden.
+        currentField = board[arrayPlayers[i].getPosition()];
+        if (currentField instanceof FieldJail) { ((FieldJail) currentField).goToJail(arrayPlayers[i]); }
+        fields[oldField].setCar(guiPlayer, false);
+        newField = arrayPlayers[i].getPosition();
+        fields[newField].setCar(guiPlayer, true);
+        guiPlayer.setBalance(arrayPlayers[i].getCoins());
+        return i;
+    }
 
     private void handleJailField(Player arrayPlayer, GUI_Player guiPlayer, FieldJail jailField) {
         oldField = arrayPlayer.getPosition();
@@ -262,18 +260,18 @@ private int handleChanceCard(Player[] arrayPlayers, int i, Field currentField, C
     private void handleStreet(String allNames, Player arrayPlayer, GUI_Player guiPlayer, FieldStreet street) {
         //Når feltet ikke er owned
         if (!street.getOwned()) {
-                    arrayPlayer.subtractMoney(street.getStreetPrice());
-                    street.setOwner(arrayPlayer);
-                    street.setOwned(true);
-                    fields[arrayPlayer.getPosition()].setSubText(allNames);
-                    guiPlayer.setBalance(arrayPlayer.getCoins());
+            arrayPlayer.subtractMoney(street.getStreetPrice());
+            street.setOwner(arrayPlayer);
+            street.setOwned(true);
+            fields[arrayPlayer.getPosition()].setSubText(allNames);
+            guiPlayer.setBalance(arrayPlayer.getCoins());
 
         }
 
         //når feltet er owned
         else if (street.getOwned()) {
             if (arrayPlayer != street.getOwner()) {
-               // Når man ejer begge at streetfelterne
+                // Når man ejer begge at streetfelterne
                 if (street.getMaxOwned() == gameBoard.streetOwnershipCounter(street.getOwner(), street.getType()) && !street.getHasChecked()) {
                     street.setRentPrice(street.getStreetPrice() * 2);
                     street.setHasChecked(true);
@@ -287,9 +285,10 @@ private int handleChanceCard(Player[] arrayPlayers, int i, Field currentField, C
             }
         }
     }
+
     private boolean handleGameDone(Player[] arrayPlayers) {
-        for (int i = 0; i <arrayPlayers.length ; i++) {
-            if (arrayPlayers[i].getCoins()<1){
+        for (int i = 0; i < arrayPlayers.length; i++) {
+            if (arrayPlayers[i].getCoins() < 1) {
                 gameOver = true;
             }
         }
@@ -298,41 +297,41 @@ private int handleChanceCard(Player[] arrayPlayers, int i, Field currentField, C
 
     private void updateGUIMoney(Player[] arrayPlayers, GUI_Player[] guiPlayers) {
 
-        for (int i = 0; i <arrayPlayers.length ; i++) {
+        for (int i = 0; i < arrayPlayers.length; i++) {
             guiPlayers[i].setBalance(arrayPlayers[i].getCoins());
         }
 
     }
 
 
-
     public void welcomeMessage() {
         System.out.println(language.welcomeMessage[selectedLanguage]);
 
     }
+/*
+    public void round() {
+        //for-loop each player, call turn()
 
-// public void round() {
-//     //for-loop each player, call turn()
-// }
+        public void turn () {
+            //roll the die and instantly move that far.
+            //check if you passed start, and what you landed on.
+            //Do stuff depending on where you landed:
+            //1. Property: buy if its not owned, and pay the owner if it is. Do nothing if you own it. Remember double pay if a player owns all of a color group.
+            //2. Special fields: Start, Chance, Go to Jail, Just visiting haha. Free parking.
+            // MAKE SURE TO CHECK IF YOU CAN AFFORD TO DO EACH AND EVERY ACTION. call endGame() if you can't
 
-// public void turn() {
-//     //roll the die and instantly move that far.
-//     //check if you passed start, and what you landed on.
-//     //Do stuff depending on where you landed:
-//     //1. Property: buy if its not owned, and pay the owner if it is. Do nothing if you own it. Remember double pay if a player owns all of a color group.
-//     //2. Special fields: Start, Chance, Go to Jail, Just visiting haha. Free parking.
-//     // MAKE SURE TO CHECK IF YOU CAN AFFORD TO DO EACH AND EVERY ACTION. call endGame() if you can't!
+            public void endGame () {
+                //players count all their money. the one with most wins the game. If there is a tie, count the value of each players'
+                //property and the highest wins. If that's also a tie, then fight to the death by fist.
+            }
 
-// }
+            public static int returnLanguage () {
+                return selectedLanguage;
+            }
 
-// public void endGame() {
-//     //players count all their money. the one with most wins the game. If there is a tie, count the value of each players'
-//     //property and the highest wins. If that's also a tie, then fight to the death by fist.
-// }
-
-    public static int returnLanguage() { return selectedLanguage; }
+        }
+    }*/
 
 }
-
 
 

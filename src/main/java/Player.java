@@ -10,7 +10,7 @@ public class Player {
     private int coins;
     private boolean inJail;
 
-    public Player(String name, int position, int coins, int numberOfEscapeCards, boolean inJail, boolean isWinner/*, int account*/) {
+    public Player(String name, int position, int coins, int numberOfEscapeCards, boolean inJail/*, boolean isWinner/*, int account*/) {
         this.name=name;
         this.position=position;
         this.coins = coins;
