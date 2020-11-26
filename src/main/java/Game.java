@@ -10,7 +10,7 @@ public class Game {
 
     private GUI_Fields guiBoard = new GUI_Fields();
 
-    private GUI_Field[] fields = guiBoard.makeGUIFields();
+    private GUI_Field[] fields = guiBoard.makeGUIFields(0);
 
     private GUI gui = new GUI(fields, new Color(222, 222, 222));
 
