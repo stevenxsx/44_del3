@@ -157,29 +157,6 @@ public class Game {
             landOnChance();
         }
 
-
-
-       /*(String[] allNames, Player[] arrayPlayers, GUI_Player[] guiPlayers, int i, int diceSum) {
-            Field currentField;
-            Field otherField;
-            do {
-                currentField = board[arrayPlayers[i].getPosition()];
-                if (currentField instanceof ChanceCard) {
-                    ChanceCard chanceField = (ChanceCard) currentField;
-                    handleChanceCard(arrayPlayers, i, currentField, chanceField, guiPlayers[i]);
-                } else if (currentField instanceof FieldStreet) {
-                    FieldStreet street = (FieldStreet) currentField;
-                    handleStreet(allNames[i], arrayPlayers[i], guiPlayers[i], street);
-                } else if (currentField instanceof FieldJail) {
-                    FieldJail jailField = (FieldJail) currentField;
-                    handleJailField(arrayPlayers[i], guiPlayers[i], jailField);
-                }
-                otherField = board[arrayPlayers[i].getPosition()];
-            } while (otherField != currentField);
-
-            return i;*/
-
-
     }
 
     public void landOnStreet() {

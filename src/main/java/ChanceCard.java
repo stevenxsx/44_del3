@@ -1,37 +1,36 @@
-import java.util.Random;
-
-import gui_main.GUI;
-
 public class ChanceCard extends Field {
-
-    //her vil jeg prøve at lave det så at classen henter kortene fra bunken (ChanceCard)
-    int i;
-
-
 
     public ChanceCard(){
 
     }
 
-    //trækker et kort fra bunken af chancekort
-    public int getCard (Player player, GUI gui, int i, int arrayLength, Player[] playerArray) {
-        this.i =i;
-        Random cardPile = new Random();
-        int card = cardPile.nextInt(7) + 1;
-// Nu er det sat op så man kan en af de 20 tilfældige chance-kort når jeg har lavet dem 
-        ChanceCards chanceCard = new ChanceCards(card, player, gui, i, playerArray, arrayLength);
-        chanceCard.cardPile();
-        i= chanceCard.getTurn();
-        return i;
+    @Override
+    public boolean getOwned() {
+        return false;
     }
 
+    @Override
+    public int getStreetPrice() {
+        return 0;
+    }
 
+    @Override
+    public void setOwned(boolean b) {
+
+    }
+
+    @Override
+    public void setOwner(Player owner) {
+
+    }
+
+    @Override
+    public int getRentPrice() {
+        return 0;
+    }
+
+    @Override
+    public Player getOwner() {
+        return null;
+    }
 }
-
-/* Jeg er lidt forvirret over hvorfor der både er en Chancecards og en ChanceCardsController, idet man normalt ikke laver en controller som der
-    bliver extended og bruger den extendede ting. Effektivt gør det at ChanceCards er en kontroller af sig selv.
-    Jeg er også lettere forevirret over selve formålet for controlleren? Jeg foreslår at samle ChanceCards og ChanceCardController ;)
-    - Kat
-    Jeg for stod det heller ikke, men hjælpelæren hjalp mig med at sætte det op
-    - Simon
- */

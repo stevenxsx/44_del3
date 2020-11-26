@@ -1,4 +1,4 @@
-import gui_fields.GUI_Player;
+/*import gui_fields.GUI_Player;
 import gui_main.GUI;
 public class ChanceCards extends ChanceCard {
 
@@ -24,7 +24,7 @@ public class ChanceCards extends ChanceCard {
 
     /**
      * gui.getUserButtonPressed("Du har trukket et chancekort, ", "Fortsæt");
-     */
+
     //Herfra skal jeg "bare" lave koden for hvad hvert Chancekort skal gøre, ud fra en switch
     //så nu man lander på ChanceCardControllerne, så vælger den et tilfældigt af de 20 eksistrende
     //chancekort som der er.
@@ -43,7 +43,7 @@ public class ChanceCards extends ChanceCard {
                 (--------------)
                 Her skal der nok indsættes en gui-funktion der fortæller spilleren hvad der sker.
                 Har ikke en Gui-klasse, så gætter igen...
-                */
+
                 break;
 
 
@@ -60,7 +60,7 @@ public class ChanceCards extends ChanceCard {
                     /*(--------------)
                     Her skal der nok indsættes en gui-funktion der fortæller spilleren hvad der sker.
                     Har ikke en Gui-klasse, så gætter igen...
-                */
+
                 break;
 
 
@@ -74,7 +74,7 @@ public class ChanceCards extends ChanceCard {
                 (--------------)
                 Her skal der nok indsættes en gui-funktion der fortæller spilleren hvad der sker.
                 Har ikke en Gui-klasse, så gætter igen...
-                */
+
                 break;
             case 4:
                 //Ryk frem til Strandpromaden
@@ -85,7 +85,7 @@ public class ChanceCards extends ChanceCard {
                 (--------------)
                 Her skal der nok indsættes en gui-funktion der fortæller spilleren hvad der sker.
                 Har ikke en Gui-klasse, så gætter igen...
-                */
+
                 break;
 
 
@@ -102,7 +102,7 @@ public class ChanceCards extends ChanceCard {
                     /*
                 Her skal der nok indsættes en gui-funktion der fortæller spilleren hvad der sker.
                 Har ikke en Gui-klasse, så gætter igen...
-                */
+
                 break;
 
             case 6:
@@ -114,7 +114,7 @@ public class ChanceCards extends ChanceCard {
                 (--------------)
                 Her skal der nok indsættes en gui-funktion der fortæller spilleren hvad der sker.
                 Har ikke en Gui-klasse, så gætter igen...
-                */
+
                 break;
             case 7:
                 //slip fri fra fængsel
@@ -134,7 +134,8 @@ public class ChanceCards extends ChanceCard {
             return turn;
         }
     }
-    /*Standartcommit
+    Standartcommit
 Changes     Har lavet ChanceCard nr. ??, Men de andre nødvendige klasser
 mangler, så kaldemetoderne er sikkert noget sludder.
-     */
+
+*/
