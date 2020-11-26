@@ -35,7 +35,7 @@ public void GUI(){
     this.field = gui.getFields();
 }
 
-    public void makeGUI(){// method to make GUI Board.
+    /*public void makeGUI(){// method to make GUI Board.
         GameBoard test = new GameBoard();
 
         for (int i = 0; i < test.makeGameBoard().length; i++) {
@@ -43,7 +43,7 @@ public void GUI(){
         }
         gui = new GUI(field, Color.CYAN);
 
-    }
+    }*/
    /* public void antalPlayers(PlayerList[] t){ //den skal have fat i en methode med array i.
         player = new GUI_Player[t.length];
         car = new GUI_Car[t.length];
