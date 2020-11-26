@@ -273,8 +273,11 @@ private int handleChanceCard(Player[] arrayPlayers, int i, Field currentField, C
         //når feltet er owned
         else if (street.getOwned()) {
             if (arrayPlayer != street.getOwner()) {
-               // for street.type()
-
+               // Når man ejer begge at streetfelterne
+                if (street.getMaxOwned() == gameBoard.streetOwnershipCounter(street.getOwner(), street.getType()) && !street.getHasChecked()) {
+                    street.setRentPrice(street.getStreetPrice() * 2);
+                    street.setHasChecked(true);
+                }
 
                 //her betales lejen til ejeren
                 gui.getUserButtonPressed("Du skal betale leje: " + "M" + street.getRentPrice(), "Fortsæt");
