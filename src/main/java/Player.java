@@ -1,7 +1,7 @@
 
 public class Player {
     private String name;
-    private Account account;
+
     private int Age;
     private int color;
     private boolean isWinner;
@@ -10,13 +10,20 @@ public class Player {
     private int coins;
     private boolean inJail;
 
-    public Player(String name, int position, int coins, int numberOfEscapeCards, boolean inJail/*, boolean isWinner/*, int account*/) {
+    public Player(String name, int position, int numberOfEscapeCards, boolean inJail, int number/*, boolean isWinner/*, int account*/) {
         this.name=name;
         this.position=position;
         this.coins = coins;
         this.numberOfEscapeCards = numberOfEscapeCards;
         this.inJail = inJail;
+        this.setCoins(20-(2*(number-2)));
 
+    }
+
+
+
+    public void setCoins(int c){
+        coins = c;
     }
 
     //Henter Strengen "navn"

@@ -35,7 +35,7 @@ public class Game {
     Scanner typeEnter = new Scanner(System.in);
     String typedText;
     String typedLanguage;
-
+int numberOfPlayers;
 
     Player player1;
     Player player2;
@@ -58,7 +58,7 @@ public class Game {
 
         //Valg af antal spillere inde i GUI
         String players = gui.getUserSelection("Vælg antal spillere", "2", "3", "4");
-        int numberOfPlayers = Integer.parseInt(players);
+        numberOfPlayers = Integer.parseInt(players);
 
 
         //Skaber arrays for navne, spillere og GUI spillere.
@@ -172,7 +172,7 @@ public class Game {
 
         //adder spillerne til Listen
         for (int i = 0; i < allNames.length; i++) {
-            Player p = new Player(allNames[i], 0, 20, 0, false/*,false*/);
+            Player p = new Player(allNames[i], 0, 0, false,numberOfPlayers/*,false*/);
             arrayPlayers[i] = p;
         }
 
