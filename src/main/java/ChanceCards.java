@@ -75,7 +75,7 @@ public class ChanceCards extends ChanceCardController {
                 Her skal der nok indsættes en gui-funktion der fortæller spilleren hvad der sker.
                 Har ikke en Gui-klasse, så gætter igen...
                 */
-
+                break;
             case 4:
                 //Ryk frem til Strandpromaden
                 player.setPosition(23);
@@ -115,7 +115,7 @@ public class ChanceCards extends ChanceCardController {
                 Her skal der nok indsættes en gui-funktion der fortæller spilleren hvad der sker.
                 Har ikke en Gui-klasse, så gætter igen...
                 */
-
+                break;
             case 7:
                 //slip fri fra fængsel
 
