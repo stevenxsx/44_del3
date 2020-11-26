@@ -35,6 +35,6 @@ public class GameBoard {
         return gameBoardList;
     }
 
-    public Field getGameBoardList(int number){return  gameBoardList[number];}
+    //public Field getGameBoardList(int number){return  gameBoardList[number];}
 
     }

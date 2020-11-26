@@ -33,7 +33,7 @@
 
      public int getRentPrice() { return rentPrice; }
 
-     public void setRentPrice(int rentPrice) { this.rentPrice = rentPrice; }
+    // public void setRentPrice(int rentPrice) { this.rentPrice = rentPrice; }
    // @Override
    // public void landOnField() {
 //
