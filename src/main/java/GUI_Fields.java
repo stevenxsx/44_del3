@@ -21,7 +21,7 @@ public class GUI_Fields {
             fields[i++] = new GUI_Street("SWIMMING-\nPOOLEN", "2M", "", "2M", Color.WHITE, Color.BLACK);
             fields[i++] = new GUI_Refuge("default", "GRATIS", "PARKERING", "", Color.WHITE, Color.BLUE);
             fields[i++] = new GUI_Street("SPILLE-\nHALLEN", "3M", "", "3M", Color.WHITE, Color.BLACK);
-            fields[i++] = new GUI_Street("KINOEN", "", "3M", "3M", Color.WHITE, Color.BLACK);
+            fields[i++] = new GUI_Street("KINOEN", "3M", "", "3M", Color.WHITE, Color.BLACK);
             fields[i++] = new GUI_Chance("?", "CHANGE", "", Color.WHITE, Color.BLACK);
             fields[i++] = new GUI_Street("LEGETØJS-\nBUTIKKEN", "3M", "", "3M", Color.WHITE, Color.BLACK);
             fields[i++] = new GUI_Street("DYREHAND-\nLEN", "3M", "", "3M", Color.WHITE, Color.BLACK);
