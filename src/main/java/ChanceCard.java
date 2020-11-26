@@ -1,7 +1,6 @@
 import java.util.Random;
-import gui_fields.GUI_Player;
+
 import gui_main.GUI;
-import gui_fields.*;
 
 public class ChanceCard extends Field {
 
@@ -10,7 +9,7 @@ public class ChanceCard extends Field {
 
 
 
-    public ChanceCardController(){
+    public ChanceCard(){
 
     }
 
@@ -25,6 +24,8 @@ public class ChanceCard extends Field {
         i= chanceCard.getTurn();
         return i;
     }
+
+
 }
 
 /* Jeg er lidt forvirret over hvorfor der både er en Chancecards og en ChanceCardsController, idet man normalt ikke laver en controller som der

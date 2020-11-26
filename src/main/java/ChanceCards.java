@@ -1,6 +1,6 @@
 import gui_fields.GUI_Player;
 import gui_main.GUI;
-public class ChanceCards extends ChanceCardController {
+public class ChanceCards extends ChanceCard {
 
     int cardNumber;
     Player player;

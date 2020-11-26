@@ -9,7 +9,8 @@ public class Player extends Account {
     private GUI_Car car = new GUI_Car();
     private int getOutOfJailFreeCards = 0;
     private boolean passedGoThisTurn = false;
-    private int playerPosition;
+    private int playerPosition = 0;
+    private boolean isJailed = false;
 
     public Player(String name, int numPlayers) {
         super(numPlayers);
@@ -67,7 +68,7 @@ public class Player extends Account {
         }
     }
 
-    public boolean isPassedGoThisTurn() {
+    public boolean hasPassedGoThisTurn() {
         return passedGoThisTurn;
     }
 
@@ -76,8 +77,6 @@ public class Player extends Account {
     }
 
     public int getPlayerPosition() { return playerPosition; }
-
-    private boolean isJailed = false;
 
     public boolean isJailed() {
         return isJailed;

@@ -1,3 +1,3 @@
-abstract class Field {
+class Field {
 
 }

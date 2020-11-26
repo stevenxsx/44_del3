@@ -20,11 +20,14 @@ public class Game {
     Language language = new Language();
     GUI gui;
     GUI_Field currentField;
+    Field[] gameboard;
 
     public Game() {
         GUI_Field[] fields = GUI_Fields.makeGUIFields(0);
+        gameboard = GameFields.makeGameFields();
 
         gui = new GUI(fields, Color.WHITE); //Keep this as a light color because messages use dark gray text!
+
 
 
     }
@@ -114,11 +117,11 @@ public class Game {
                     currentPlayer.setJailed(false);
                     turn(playerID);
                 }
-                else { endGame(playerID); }
+                else { endGame(currentPlayer); }
             }
         }
 
-        endGame(playerID);
+        endGame(currentPlayer);
 
     }
 
@@ -134,7 +137,7 @@ public class Game {
         currentField.setCar(currentGUIPlayer, true); //sets gui player's position on currentField
 
 
-        landOnField(playerID, currentPlacement);
+        landOnField(playerID);
 
 
 
@@ -142,12 +145,81 @@ public class Game {
 
     }
 
-    public void landOnField(int playerID, int currentPlacement) {
+    public void landOnField(int playerID) {
+
+        if (gameboard[currentPlacement] instanceof FieldStreet) {
+            landOnStreet();
+        }
+        else if (gameboard[currentPlacement] instanceof FieldJail) {
+            landOnJail();
+        }
+        else if (gameboard[currentPlacement] instanceof ChanceCard) {
+            landOnChance();
+        }
+
+
+
+       /*(String[] allNames, Player[] arrayPlayers, GUI_Player[] guiPlayers, int i, int diceSum) {
+            Field currentField;
+            Field otherField;
+            do {
+                currentField = board[arrayPlayers[i].getPosition()];
+                if (currentField instanceof ChanceCard) {
+                    ChanceCard chanceField = (ChanceCard) currentField;
+                    handleChanceCard(arrayPlayers, i, currentField, chanceField, guiPlayers[i]);
+                } else if (currentField instanceof FieldStreet) {
+                    FieldStreet street = (FieldStreet) currentField;
+                    handleStreet(allNames[i], arrayPlayers[i], guiPlayers[i], street);
+                } else if (currentField instanceof FieldJail) {
+                    FieldJail jailField = (FieldJail) currentField;
+                    handleJailField(arrayPlayers[i], guiPlayers[i], jailField);
+                }
+                otherField = board[arrayPlayers[i].getPosition()];
+            } while (otherField != currentField);
+
+            return i;*/
 
 
     }
 
-    public void endGame(int loserID) {
+    public void landOnStreet() {
+        if (!gameboard[currentPlacement].getOwned()) { //checks if NOT owned
+            if (currentPlayer.getCoins() < gameboard[currentPlacement].getStreetPrice()) { //checks if you're poor
+                endGame(currentPlayer); //ends game if you're poor
+            }
+            else {
+                gameboard[currentPlacement].setOwned(true);
+                gameboard[currentPlacement].setOwner(currentPlayer);
+                currentPlayer.addCoins(-(gameboard[currentPlacement].getStreetPrice())); //pays for the property
+            }
+
+
+        }
+        else { //if the property is already owned
+            if (currentPlayer.getCoins() < gameboard[currentPlacement].getRentPrice()) { //checks if you're poor
+                endGame(currentPlayer);
+            }
+            else {
+                currentPlayer.addCoins(-(gameboard[currentPlacement].getRentPrice()));
+                gameboard[currentPlacement].getOwner().addCoins(gameboard[currentPlacement].getRentPrice());
+            }
+        }
+        //update gui ?
+    }
+
+    public void landOnJail() {
+        currentPlayer.setPlayerPosition(6);
+        currentPlayer.setJailed(true);
+        currentField.setCar(currentGUIPlayer, false); //removes old position on gui
+        currentField = gui.getFields()[currentPlacement]; //sets new position on gui
+        currentField.setCar(currentGUIPlayer, true); //sets gui player's position on currentField
+        }
+
+    public void landOnChance() {
+
+    }
+
+    public void endGame(Player currentPlayer) {
         gameInProgress = false;
         //players count all their money. the one with most wins the game. If there is a tie, count the value of each players'
         //property and the highest wins. If that's also a tie, then fight to the death by fist.

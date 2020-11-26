@@ -1,7 +1,7 @@
  public class FieldStreet extends Field {
      String displayPrice;
         String propertyName;
-        Boolean owned;   //Er denne her nødvendig? Tænker hvis ingen owner, owner = null - Kat
+        boolean owned;
         Player owner;
         char type;
         int rentPrice;
@@ -9,7 +9,7 @@
         boolean Checked = false;
         int maxOwned;
 
-        public FieldStreet(String displayPrice, String propertyName, Boolean owned, char type, int streetPrice, int rentPrice, Player owner, int maxOwned){
+        public FieldStreet(String displayPrice, String propertyName, boolean owned, char type, int streetPrice, int rentPrice, Player owner, int maxOwned){
            // Making the fields base line
             this.displayPrice = displayPrice;
             this.propertyName = propertyName;
@@ -21,11 +21,12 @@
             this.maxOwned = maxOwned;
         }
 
+
      public int getStreetPrice(){return streetPrice;}
 
-     public Boolean getOwned(){return owned;}
+     public boolean getOwned(){return owned;}
 
-     public void setOwned(boolean setEjet){ owned =setEjet; }
+     public void setOwned(boolean b){ owned = b; }
 
      public void setOwner(Player owner){ this.owner = owner; }
 
@@ -42,9 +43,4 @@
 
      public int getMaxOwned() { return maxOwned; }
 
-    // public void setRentPrice(int rentPrice) { this.rentPrice = rentPrice; }
-   // @Override
-   // public void landOnField() {
-//
-   //  }
  }

@@ -28,13 +28,7 @@ public class Account {
     }
 
     private int getDefaultCoinAmount(int numPlayers){
-        if (numPlayers == 2)
-            return DEFAULT_COIN_AMOUNT = 20;
-        else if (numPlayers == 3)
-            return DEFAULT_COIN_AMOUNT = 18;
-        else if (numPlayers == 4)
-            return DEFAULT_COIN_AMOUNT = 16;
-        else throw new RuntimeException("Fejl x: Forkert antal spillere, antal spillere kan være: 2, 3, og 4.");
+        return (20-((numPlayers-2)*2));
     }
 
     public String toString() {
