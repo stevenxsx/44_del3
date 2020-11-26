@@ -6,7 +6,6 @@ import gui_main.GUI;
 
 
 import java.awt.*;
-import java.util.regex.Pattern;
 
 /**
  * public class GUI_Controller {
@@ -39,8 +38,8 @@ public void GUI(){
     public void makeGUI(){// method to make GUI Board.
         GameBoard test = new GameBoard();
 
-        for (int i = 0; i < test.GameBoard().length; i++) {
-            Field field = test.getGameBoardList(i);
+        for (int i = 0; i < test.makeGameBoard().length; i++) {
+            Field field = test.getGameBoardField(i);
         }
         gui = new GUI(field, Color.CYAN);
 

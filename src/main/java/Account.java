@@ -10,17 +10,21 @@ public class Account {
         coins = DEFAULT_COIN_AMOUNT;
     }
 
-    public boolean addCoins(int amount) {
+
+    public void addCoins(int amount) {
         coins += amount;
-        return coins >= MIN_COIN_AMOUNT;
     }
 
-    public void reset() {
-        coins = DEFAULT_COIN_AMOUNT;
+    public void setCoins(int amount) {
+        coins = amount;
     }
 
     public int getCoins() {
         return coins;
+    }
+
+    public void reset() {
+        coins = DEFAULT_COIN_AMOUNT;
     }
 
     private int getDefaultCoinAmount(int numPlayers){

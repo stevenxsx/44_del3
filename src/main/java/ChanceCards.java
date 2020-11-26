@@ -1,4 +1,4 @@
-public class ChanceCards extends ChanceCardController {
+public class ChanceCards {
 
     int cardNumber;
     Player player;

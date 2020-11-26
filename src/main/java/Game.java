@@ -1,18 +1,12 @@
-
-import gui_fields.GUI_Car;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
 import gui_main.GUI;
 
 import java.awt.*;
-import java.util.Arrays;
-import java.util.Scanner;
-
-import static java.awt.Color.GREEN;
 
 public class Game {
 
-    int startBalance = 2000;
+    int startBalance = 20;
     Dice die = new Dice();
     int numberOfPlayers;
     PlayerList players;
@@ -48,10 +42,10 @@ public class Game {
         }
 
         //select number of players
-        numberOfPlayers = Integer.parseInt(gui.getUserSelection("Please select a number of players!","1","2","3","4"));
+        numberOfPlayers = Integer.parseInt(gui.getUserSelection("Please select a number of players!","2","3","4"));
         String[] playerNames = new String[numberOfPlayers];
         for (int i = 0; i < numberOfPlayers; i++) {
-            playerNames[i] = gui.getUserString("PLease enter the name of the " + (i + 1) + ". player");
+            playerNames[i] = gui.getUserString("Please enter the name of the " + (i + 1) + ". player");
         }
 
         //creates an array of Player objects and assigns each one their name.
@@ -92,7 +86,7 @@ public class Game {
         }
     }
 
-    public void turn(int player) {
+    public void turn(int playerID) {
         //roll the die and instantly move that far.
         //check if you passed start, and what you landed on.
         //Do stuff depending on where you landed:
@@ -100,38 +94,66 @@ public class Game {
         //2. Special fields: Start, Chance, Go to Jail, Just visiting haha. Free parking.
         // MAKE SURE TO CHECK IF YOU CAN AFFORD TO DO EACH AND EVERY ACTION. call endGame() if you can't!
 
-        currentPlayer = players.getPlayer(player);
-        currentGUIPlayer = guiPlayers[player];
+        currentPlayer = players.getPlayer(playerID);
+        currentGUIPlayer = guiPlayers[playerID];
         if (!currentPlayer.isJailed()) {
-            currentPlayer.movePlayer(die.roll());
+            move(playerID); //move handles landing on fields etc.
         }
+
+        //handling of jailed players
         else {
             //pay 1 money or use get out of jail free card and call turn() again.
             if (currentPlayer.hasJailCard()) {
                 currentPlayer.changeJailCard(-1);
                 currentPlayer.setJailed(false);
-                turn(player);
+                turn(playerID);
             }
-         }
+            else {
+                if (currentPlayer.getCoins() > 0) {
+                    currentPlayer.addCoins(-1);
+                    currentPlayer.setJailed(false);
+                    turn(playerID);
+                }
+                else { endGame(playerID); }
+            }
+        }
+
+        endGame(playerID);
+
+    }
 
 
-        currentField = gui.getFields()[currentPlayer.getPlayerPosition()]; //sets position on gui
+
+    public void move(int playerID) {
+        previousPlacement = currentPlayer.getPlayerPosition(); //set previous placement
+        currentPlayer.movePlayer(die.roll()); //changes player's position number
+        currentPlacement = currentPlayer.getPlayerPosition(); //set current placement
+
+        currentField.setCar(currentGUIPlayer, false); //removes old position on gui
+        currentField = gui.getFields()[currentPlacement]; //sets new position on gui
         currentField.setCar(currentGUIPlayer, true); //sets gui player's position on currentField
 
-        gameWon();
+
+        landOnField(playerID, currentPlacement);
+
+
+
+
 
     }
 
-    public void gameWon() {
+    public void landOnField(int playerID, int currentPlacement) {
+
+
+    }
+
+    public void endGame(int loserID) {
         gameInProgress = false;
-    }
-
-    public void endGame() {
         //players count all their money. the one with most wins the game. If there is a tie, count the value of each players'
         //property and the highest wins. If that's also a tie, then fight to the death by fist.
     }
 
-    public static int returnLanguage() { return selectedLanguage; }
+    public static int returnLanguageID() { return selectedLanguage; }
 
 }
 

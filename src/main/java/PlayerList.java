@@ -9,7 +9,7 @@ public class PlayerList {
         System.arraycopy(names, 0, stringNames, 0, names.length);
         playerList = new Player[number];
         for (int i = 0;i < number;i++)
-            playerList[i]=new Player(names[i]);
+            playerList[i]=new Player(names[i], number);
     }
 
     public void addPlayer(int antal){
