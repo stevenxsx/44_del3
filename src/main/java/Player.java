@@ -25,9 +25,9 @@ public class Player {
     }
 
     //Henter int'et "coins"
-    public int getcoins() {
-        return coins;
-    }
+    //public int getcoins() {
+    //    return coins;
+    //}
 
     public int getPosition(){
         return position;
@@ -35,17 +35,17 @@ public class Player {
 
     public void setPosition(int setPosition){position= setPosition; }
 
-    public Account getAccount() {
-        return account;
-    }
-
-    //public boolean addCoins(int amount) {
-    //    return account.addCoins(amount);
+    //public Account getAccount() {
+    //    return account;
     //}
-
-    public void resetAccount() {
-        account.reset();
-    }
+//
+    ////public boolean addCoins(int amount) {
+    ////    return account.addCoins(amount);
+    ////}
+//
+    //public void resetAccount() {
+    //    account.reset();
+    //}
 
     /*  public String getName() {
         return name;
@@ -65,14 +65,14 @@ public class Player {
         coins = coins - totalPoint;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setColor(int color) {
-        this.color = color;
-    }
-
+    //public void setName(String name) {
+    //    this.name = name;
+    //}
+//
+    //public void setColor(int color) {
+    //    this.color = color;
+    //}
+//
     public boolean isWinner() { return isWinner; }
 
 
@@ -104,27 +104,27 @@ public class Player {
 
     private int playerPosition;
 
-    public void setPlayerPosition(int position){
-        if (position < 0) {
-            playerPosition = 0;
-        } else if (position > 23) {
-            playerPosition = 0;
-        }
-        else
-            playerPosition = position;
-    }
+   //public void setPlayerPosition(int position){
+   //    if (position < 0) {
+   //        playerPosition = 0;
+   //    } else if (position > 23) {
+   //        playerPosition = 0;
+   //    }
+   //    else
+   //        playerPosition = position;
+   //}
 
-    /**
-     * method used to move player positions, as well as making sure it continues to move after one round.
-     * @param amount number of fields to move
-     */
-    public void movePlayerPosition(int amount){
-        if (playerPosition + amount > 23) { // Making sure players can go in circles.
-            amount = playerPosition + amount - 23;
-            setPlayerPosition(0);
-        }
-        setPlayerPosition(playerPosition + amount);
-    }
+ //  /**
+ //   * method used to move player positions, as well as making sure it continues to move after one round.
+ //   * @param amount number of fields to move
+ //   */
+ // //public void movePlayerPosition(int amount){
+   //    if (playerPosition + amount > 23) { // Making sure players can go in circles.
+   //        amount = playerPosition + amount - 23;
+   //        setPlayerPosition(0);
+   //    }
+   //    setPlayerPosition(playerPosition + amount);
+   //}
 
     public int getPlayerPosition() {
 
