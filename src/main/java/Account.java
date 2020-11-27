@@ -1,15 +1,14 @@
 
 public class Account {
-    private static int DEFAULT_COIN_AMOUNT = 200;
+    private static final int DEFAULT_COIN_AMOUNT = 20;
     private static final int MIN_COIN_AMOUNT = 0;
     private int coins;
 
     public Account(int numPlayers) {
 
-        DEFAULT_COIN_AMOUNT = getDefaultCoinAmount(numPlayers);
-        coins = DEFAULT_COIN_AMOUNT;
-    }
+        coins = getDefaultCoinAmount(numPlayers);
 
+    }
 
     public void addCoins(int amount) {
         coins += amount;
