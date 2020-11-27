@@ -156,9 +156,9 @@ public class Game {
 
         if (gameboard[currentPlacement] instanceof FieldStreet) {
             landOnStreet();
-        } else if (gameboard[currentPlacement] instanceof FieldJail) {
+        } else if (gameboard[currentPlacement] instanceof FieldGoToJail) {
             landOnJail();
-        } else if (gameboard[currentPlacement] instanceof ChanceCard) {
+        } else if (gameboard[currentPlacement] instanceof FieldChance) {
             landOnChance();
         }
 
@@ -266,7 +266,6 @@ public class Game {
     }
 
 
-
     public int rollChanceCard() {
         return (int) (Math.random() * usedChanceCards.length);
     }
@@ -304,8 +303,41 @@ public class Game {
                 usedChanceCards[cardID] = true;
                 //ryk frem til hvilket som helst ledigt felt og køb det.
                 //Hvis der ikke er nogle ledige felter tilbage, skal du købe et fra en anden spiller.
-                String selection0 = gui.getUserSelection("Vælg et felt at rykke frem til, og dermed køb det. Hvis der ikke er nogle felter ledige, så vælg en anden spillers's felt og køb det fra dem","Burgerbaren",
-                        "Pizzariaet","Slikbutikken","Iskiosken","Museet","Biblioteket","Skaterparken","Svømmebassinet","Spillehallen","Biografen","Legetøjsbutikken","Dyrehandleren","Bowlinghallen","Zoologisk Have","Vandlandet","Strandpromenaden");
+                selection = gui.getUserSelection("Vælg et felt at rykke frem til, og dermed køb det. Hvis der ikke er nogle felter ledige, så vælg en anden spillers's felt og køb det fra dem", "Burgerbaren",
+                        "Pizzariaet", "Slikbutikken", "Iskiosken", "Museet", "Biblioteket", "Skaterparken", "Svømmebassinet", "Spillehallen", "Biografen", "Legetøjsbutikken", "Dyrehandleren", "Bowlinghallen", "Zoologisk Have", "Vandlandet", "Strandpromenaden");
+
+                boolean areAllPropertiesPurchased = true;
+                int selectedPropertyIndex = 0;
+                for (int i = 0; i < gameboard.length; i++) { //checks if there are available properties
+                    if (!gameboard[i].getOwned()) {
+                        areAllPropertiesPurchased = false;
+
+                    }
+                }
+
+                for (int i = 0; i < gameboard.length; i++) { //finds ID of selected property
+                    if (gameboard[i].getPropertyName().equals(selection)) {
+                        selectedPropertyIndex = i;
+                    }
+                }
+
+                if (areAllPropertiesPurchased) { //no properties left -> steal property
+                    if (currentPlayer.getCoins() >= gameboard[selectedPropertyIndex].getStreetPrice()) {//checks if the player can afford to buy the property.
+                        gameboard[selectedPropertyIndex].getOwner().addCoins(gameboard[selectedPropertyIndex].getStreetPrice()); //pays the previous owner the price
+                        gameboard[selectedPropertyIndex].setOwner(currentPlayer); //sets the current player as the new owner
+                        currentPlayer.addCoins(-gameboard[selectedPropertyIndex].getStreetPrice()); //current player pays for the new property
+                        move(24 + (selectedPropertyIndex - currentPlacement) % 24); //moves player to his new property
+                    }
+                    else { //triggers if the player can't afford the property
+                        gui.showMessage("Du har ikke råd til at købe det felt. Vælg en ny.");
+                        chance(0);
+                    }
+
+
+
+                } else { //moves to selected property and buys it like normal.
+                    move(24 + (selectedPropertyIndex - currentPlacement) % 24);
+                }
 
 
                 break;
@@ -323,7 +355,7 @@ public class Game {
             case 3:
                 System.out.println("Chance card Gratis felt (orange)");
                 usedChanceCards[cardID] = true;
-                selection = gui.getUserSelection("Ryk frem til et af de 2 felter og få det gratis hvis det er ledigt!","Ryk frem til Skaterparken", "Ryk frem til Svømmebassinet"); //Move to orange fields index 10 or 11
+                selection = gui.getUserSelection("Ryk frem til et af de 2 felter og få det gratis hvis det er ledigt!", "Ryk frem til Skaterparken", "Ryk frem til Svømmebassinet"); //Move to orange fields index 10 or 11
                 if (selection.equals("Ryk frem til Skaterparken")) {
                     if (!gameboard[10].getOwned()) { //gives the player the price of field if its available (so its free)
                         currentPlayer.addCoins(gameboard[10].getStreetPrice());
@@ -342,7 +374,7 @@ public class Game {
             case 4:
                 System.out.println("Chance card Ryk 1 frem/Chancekort ekstra");
                 usedChanceCards[cardID] = true;
-                selection = gui.getUserSelection("Vælg en mulighed!","Ryk et felt frem", "Tag et chancekort mere");
+                selection = gui.getUserSelection("Vælg en mulighed!", "Ryk et felt frem", "Tag et chancekort mere");
                 if (selection.equals("Ryk et felt frem")) {
                     move(1);
                 } else if (selection.equals("Tag et chancekort mere")) {
@@ -368,10 +400,10 @@ public class Game {
             case 7:
                 System.out.println("Chance card Gratis felt (orange/grønt)");
                 usedChanceCards[cardID] = true;
-                selection = gui.getUserSelection("Ryk frem til et af de 4 felter og få det gratis hvis det er ledigt!","Ryk frem til Skaterparken", "Ryk frem til Svømmebassinet", "Ryk frem til Zoologisk Have", "Ryk frem til Bowlinghallen"); //Move to orange fields index 10 or 11
+                selection = gui.getUserSelection("Ryk frem til et af de 4 felter og få det gratis hvis det er ledigt!", "Ryk frem til Skaterparken", "Ryk frem til Svømmebassinet", "Ryk frem til Zoologisk Have", "Ryk frem til Bowlinghallen"); //Move to orange fields index 10 or 11
                 if (selection.equals("Ryk frem til Skaterparken")) {
                     if (!gameboard[10].getOwned()) { //gives the player the price of field if its available (so its free)
-                        currentPlayer.addCoins(gameboard[- currentPlacement + 10].getStreetPrice());
+                        currentPlayer.addCoins(gameboard[-currentPlacement + 10].getStreetPrice());
                     }
                     move(24 + (10 - currentPlacement) % 24);
                 } else if (selection.equals("Ryk frem til Svømmebassinet")) {
@@ -396,7 +428,7 @@ public class Game {
             case 8:
                 System.out.println("Chance card Gratis felt (lyseblåt)");
                 usedChanceCards[cardID] = true;
-                selection = gui.getUserSelection("Ryk frem til et af de 2 felter og få det gratis hvis det er ledigt!","Ryk frem til Slikbutikken", "Ryk frem til Iskiosken"); //Move to orange fields index 10 or 11
+                selection = gui.getUserSelection("Ryk frem til et af de 2 felter og få det gratis hvis det er ledigt!", "Ryk frem til Slikbutikken", "Ryk frem til Iskiosken"); //Move to orange fields index 10 or 11
                 if (selection.equals("Ryk frem til Slikbutikken")) {
                     if (!gameboard[4].getOwned()) { //gives the player the price of field if its available (so its free)
                         currentPlayer.addCoins(gameboard[4].getStreetPrice());
@@ -450,7 +482,7 @@ public class Game {
             case 14:
                 System.out.println("Chance card Gratis felt (pink/mørkeblåt)");
                 usedChanceCards[cardID] = true;
-                selection = gui.getUserSelection("Ryk frem til et af de 4 felter og få det gratis hvis det er ledigt!", "Ryk frem til Museet","Ryk frem til Biblioteket", "Ryk frem til Vandlandet", "Ryk frem til Strandpromenaden"); //Move to orange fields index 10 or 11
+                selection = gui.getUserSelection("Ryk frem til et af de 4 felter og få det gratis hvis det er ledigt!", "Ryk frem til Museet", "Ryk frem til Biblioteket", "Ryk frem til Vandlandet", "Ryk frem til Strandpromenaden"); //Move to orange fields index 10 or 11
                 if (selection.equals("Ryk frem til Museet")) {
                     if (!gameboard[7].getOwned()) { //gives the player the price of field if its available (so its free)
                         currentPlayer.addCoins(gameboard[7].getStreetPrice());
@@ -483,7 +515,7 @@ public class Game {
             case 16:
                 System.out.println("Chance card Gratis felt (rødt)");
                 usedChanceCards[cardID] = true;
-                selection = gui.getUserSelection("Ryk frem til et af de 2 felter og få det gratis hvis det er ledigt!","Ryk frem til Spillehallen","Ryk frem til Biografen"); //Move to orange fields index 10 or 11
+                selection = gui.getUserSelection("Ryk frem til et af de 2 felter og få det gratis hvis det er ledigt!", "Ryk frem til Spillehallen", "Ryk frem til Biografen"); //Move to orange fields index 10 or 11
                 if (selection.equals("Ryk frem til Spillehallen")) {
                     if (!gameboard[13].getOwned()) { //gives the player the price of field if its available (so its free)
                         currentPlayer.addCoins(gameboard[13].getStreetPrice());

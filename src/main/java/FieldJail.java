@@ -1,11 +1,11 @@
 public class FieldJail extends Field {
 
-    public FieldJail() { }
+    String propertyName;
+
+    FieldJail(String name) { propertyName = name; }
 
     @Override
-    public boolean getOwned() {
-        return true;
-    }
+    public boolean getOwned() { return true; }
 
     @Override
     public int getStreetPrice() {
@@ -54,6 +54,6 @@ public class FieldJail extends Field {
 
     @Override
     public String getPropertyName() {
-        return null;
+        return propertyName;
     }
 }

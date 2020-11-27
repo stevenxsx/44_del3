@@ -1,9 +1,12 @@
-public class visitJail extends Field {
+public class FieldChance extends Field {
 
-    visitJail() { }
+    String propertyName;
+    public FieldChance(String name) { propertyName = name; }
 
     @Override
-    public boolean getOwned() { return true; }
+    public boolean getOwned() {
+        return true;
+    }
 
     @Override
     public int getStreetPrice() {
@@ -52,6 +55,6 @@ public class visitJail extends Field {
 
     @Override
     public String getPropertyName() {
-        return null;
+        return propertyName;
     }
 }

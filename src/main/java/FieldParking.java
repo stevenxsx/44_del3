@@ -1,6 +1,8 @@
 public class FieldParking extends Field {
 
-    FieldParking() { }
+    String propertyName;
+
+    FieldParking(String name) { propertyName = name; }
 
     @Override
     public boolean getOwned() {
@@ -54,6 +56,6 @@ public class FieldParking extends Field {
 
     @Override
     public String getPropertyName() {
-        return null;
+        return propertyName;
     }
 }

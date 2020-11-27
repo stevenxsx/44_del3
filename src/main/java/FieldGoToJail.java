@@ -1,7 +1,8 @@
-public class ChanceCard extends Field {
+public class FieldGoToJail extends Field {
 
+    String propertyName;
 
-    public ChanceCard(){ }
+    public FieldGoToJail(String name) { propertyName = name; }
 
     @Override
     public boolean getOwned() {
@@ -55,6 +56,6 @@ public class ChanceCard extends Field {
 
     @Override
     public String getPropertyName() {
-        return null;
+        return propertyName;
     }
 }

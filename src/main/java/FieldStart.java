@@ -1,6 +1,8 @@
 public class FieldStart extends Field {
 
-    public FieldStart() { }
+    String propertyName;
+
+    public FieldStart(String name) { propertyName = name; }
 
     @Override
     public boolean getOwned() {
@@ -54,6 +56,6 @@ public class FieldStart extends Field {
 
     @Override
     public String getPropertyName() {
-        return null;
+        return propertyName;
     }
 }
