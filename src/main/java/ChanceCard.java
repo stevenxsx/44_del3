@@ -1,8 +1,7 @@
 public class ChanceCard extends Field {
 
-    public ChanceCard(){
 
-    }
+    public ChanceCard(){ }
 
     @Override
     public boolean getOwned() {

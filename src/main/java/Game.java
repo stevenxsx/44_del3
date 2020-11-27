@@ -3,24 +3,26 @@ import gui_fields.GUI_Player;
 import gui_main.GUI;
 
 import java.awt.*;
+import java.util.Arrays;
 
 public class Game {
 
-    int startBalance = 20;
     Dice die = new Dice();
-    int numberOfPlayers;
-    PlayerList players;
-    GUI_Player[] guiPlayers;
-    int previousPlacement = 0;
-    int currentPlacement = 0;
-    Player currentPlayer;
-    GUI_Player currentGUIPlayer;
+    private int numberOfPlayers;
+    private int previousPlacement = 0;
+    private int currentPlacement = 0;
     boolean gameInProgress = true;
     private static int selectedLanguage;
+    boolean[] usedChanceCards = new boolean[18];
+    PlayerList players;
+    GUI_Player[] guiPlayers;
+    Player currentPlayer;
+    GUI_Player currentGUIPlayer;
     Language language = new Language();
     GUI gui;
     GUI_Field currentField;
     Field[] gameboard;
+
 
     public Game() {
         GUI_Field[] fields = GUI_Fields.makeGUIFields(0);
@@ -29,37 +31,47 @@ public class Game {
         gui = new GUI(fields, Color.WHITE); //Keep this as a light color because messages use dark gray text!
 
 
-
     }
 
     public void startGame() {
         //welcome message
         gui.showMessage("Welcome Message :)");
         //language selection
-        if (gui.getUserSelection("Please select a language!","English","Danish","Orc","Chalcatongo Mixtec (dont pick please)").equals("English")) {
+        if (gui.getUserSelection("Please select a language!", "English", "Danish", "Orc", "Chalcatongo Mixtec (dont pick please)").equals("English")) {
             System.out.println("Language Unchanged - English");
-        }
-        else if (gui.getUserSelection("Please select a language!","English","Danish","Orc","Chalcatongo Mixtec (dont pick please)").equals("Danish")) {
+        } else if (gui.getUserSelection("Please select a language!", "English", "Danish", "Orc", "Chalcatongo Mixtec (dont pick please)").equals("Danish")) {
             //remake GUI with new language
             System.out.println("Language Change - Danish");
         }
 
         //select number of players
-        numberOfPlayers = Integer.parseInt(gui.getUserSelection("Please select a number of players!","2","3","4"));
+        numberOfPlayers = Integer.parseInt(gui.getUserSelection("Please select a number of players!", "2", "3", "4"));
         String[] playerNames = new String[numberOfPlayers];
         for (int i = 0; i < numberOfPlayers; i++) {
             playerNames[i] = gui.getUserString("Please enter the name of the " + (i + 1) + ". player");
         }
 
         //creates an array of Player objects and assigns each one their name.
-        players = new PlayerList(numberOfPlayers,playerNames);
+        players = new PlayerList(numberOfPlayers, playerNames);
         //System.out.println(Arrays.toString(playerNames)); //Debugging!
         //System.out.println(players.toString()); //Debugging
 
         //creates an array of GUI_Player objects. Sets their name, starting money, and car.
         guiPlayers = new GUI_Player[numberOfPlayers];
         for (int i = 0; i < numberOfPlayers; i++) {
+            int startBalance = 20;
             guiPlayers[i] = new GUI_Player(players.getPlayer(i).getName(), startBalance, players.getPlayer(i).getCar());
+        }
+
+        //Mix the deck of chance cards.
+        Arrays.fill(usedChanceCards, false);
+
+        //set current field to Start.
+        currentField = gui.getFields()[0];
+
+        //puts the players on Start in the gui.
+        for (int i = 0; i < numberOfPlayers; i++) {
+            currentField.setCar(guiPlayers[i], true);
         }
 
         while (gameInProgress) { //Keeps game going until gameWon is called
@@ -90,15 +102,11 @@ public class Game {
     }
 
     public void turn(int playerID) {
-        //roll the die and instantly move that far.
-        //check if you passed start, and what you landed on.
-        //Do stuff depending on where you landed:
-        //1. Property: buy if its not owned, and pay the owner if it is. Do nothing if you own it. Remember double pay if a player owns all of a color group.
-        //2. Special fields: Start, Chance, Go to Jail, Just visiting haha. Free parking.
-        // MAKE SURE TO CHECK IF YOU CAN AFFORD TO DO EACH AND EVERY ACTION. call endGame() if you can't!
 
+        gui.showMessage("It is now " + players.getPlayer(playerID).getName() + "'s turn.");
         currentPlayer = players.getPlayer(playerID);
         currentGUIPlayer = guiPlayers[playerID];
+
         if (!currentPlayer.isJailed()) {
             move(playerID); //move handles landing on fields etc.
         }
@@ -110,21 +118,18 @@ public class Game {
                 currentPlayer.changeJailCard(-1);
                 currentPlayer.setJailed(false);
                 turn(playerID);
-            }
-            else {
+            } else {
                 if (currentPlayer.getCoins() > 0) {
                     currentPlayer.addCoins(-1);
                     currentPlayer.setJailed(false);
                     turn(playerID);
+                } else {
+                    endGame(currentPlayer);
                 }
-                else { endGame(currentPlayer); }
             }
         }
 
-        endGame(currentPlayer);
-
     }
-
 
 
     public void move(int playerID) {
@@ -137,23 +142,16 @@ public class Game {
         currentField.setCar(currentGUIPlayer, true); //sets gui player's position on currentField
 
 
-        landOnField(playerID);
-
-
-
-
-
+        landOnField();
     }
 
-    public void landOnField(int playerID) {
+    public void landOnField() {
 
         if (gameboard[currentPlacement] instanceof FieldStreet) {
             landOnStreet();
-        }
-        else if (gameboard[currentPlacement] instanceof FieldJail) {
+        } else if (gameboard[currentPlacement] instanceof FieldJail) {
             landOnJail();
-        }
-        else if (gameboard[currentPlacement] instanceof ChanceCard) {
+        } else if (gameboard[currentPlacement] instanceof ChanceCard) {
             landOnChance();
         }
 
@@ -163,20 +161,17 @@ public class Game {
         if (!gameboard[currentPlacement].getOwned()) { //checks if NOT owned
             if (currentPlayer.getCoins() < gameboard[currentPlacement].getStreetPrice()) { //checks if you're poor
                 endGame(currentPlayer); //ends game if you're poor
-            }
-            else {
+            } else {
                 gameboard[currentPlacement].setOwned(true);
                 gameboard[currentPlacement].setOwner(currentPlayer);
                 currentPlayer.addCoins(-(gameboard[currentPlacement].getStreetPrice())); //pays for the property
             }
 
 
-        }
-        else { //if the property is already owned
+        } else { //if the property is already owned
             if (currentPlayer.getCoins() < gameboard[currentPlacement].getRentPrice()) { //checks if you're poor
                 endGame(currentPlayer);
-            }
-            else {
+            } else {
                 currentPlayer.addCoins(-(gameboard[currentPlacement].getRentPrice()));
                 gameboard[currentPlacement].getOwner().addCoins(gameboard[currentPlacement].getRentPrice());
             }
@@ -190,11 +185,8 @@ public class Game {
         currentField.setCar(currentGUIPlayer, false); //removes old position on gui
         currentField = gui.getFields()[currentPlacement]; //sets new position on gui
         currentField.setCar(currentGUIPlayer, true); //sets gui player's position on currentField
-        }
-
-    public void landOnChance() {
-
     }
+
 
     public void endGame(Player currentPlayer) {
         gameInProgress = false;
@@ -202,7 +194,116 @@ public class Game {
         //property and the highest wins. If that's also a tie, then fight to the death by fist.
     }
 
-    public static int returnLanguageID() { return selectedLanguage; }
+    public static int returnLanguageID() {
+        return selectedLanguage;
+    }
+
+    public int rollChanceCard() {
+        return (int) (Math.random() * usedChanceCards.length);
+    }
+
+    public void landOnChance() {
+        boolean cardsLeft = false;
+        for (int i = 0; i < usedChanceCards.length; i++) { //Checks to see if at least 1 card is left.
+            if (usedChanceCards[i] == false) {
+                cardsLeft = true;
+                break;
+            }
+        }
+        if (!cardsLeft) { //Resets the deck
+            Arrays.fill(usedChanceCards, false);
+        }
+
+
+        if (cardsLeft) { //Finds an unused card and calls chance() with it's ID.
+            int cardID = rollChanceCard();
+            while (usedChanceCards[cardID]) {
+                cardID = rollChanceCard();
+            }
+
+            chance(cardID);
+        }
+
+
+    }
+
+    public void chance(int cardID) { //Takes the ID of an unused card.
+        switch (cardID) {
+            case 0:
+                System.out.println("Chance card 0");
+                usedChanceCards[cardID] = true;
+                break;
+            case 1:
+                System.out.println("Chance card 1");
+                usedChanceCards[cardID] = true;
+                break;
+            case 2:
+                System.out.println("Chance card 2");
+                usedChanceCards[cardID] = true;
+                break;
+            case 3:
+                System.out.println("Chance card 3");
+                usedChanceCards[cardID] = true;
+                break;
+            case 4:
+                System.out.println("Chance card 4");
+                usedChanceCards[cardID] = true;
+                break;
+            case 5:
+                System.out.println("Chance card 5");
+                usedChanceCards[cardID] = true;
+                break;
+            case 6:
+                System.out.println("Chance card 6");
+                usedChanceCards[cardID] = true;
+                break;
+            case 7:
+                System.out.println("Chance card 7");
+                usedChanceCards[cardID] = true;
+                break;
+            case 8:
+                System.out.println("Chance card 8");
+                usedChanceCards[cardID] = true;
+                break;
+            case 9:
+                System.out.println("Chance card 9");
+                usedChanceCards[cardID] = true;
+                break;
+            case 10:
+                System.out.println("Chance card 10");
+                usedChanceCards[cardID] = true;
+                break;
+            case 11:
+                System.out.println("Chance card 11");
+                usedChanceCards[cardID] = true;
+                break;
+            case 12:
+                System.out.println("Chance card 12");
+                usedChanceCards[cardID] = true;
+                break;
+            case 13:
+                System.out.println("Chance card 13");
+                usedChanceCards[cardID] = true;
+                break;
+            case 14:
+                System.out.println("Chance card 14");
+                usedChanceCards[cardID] = true;
+                break;
+            case 15:
+                System.out.println("Chance card 15");
+                usedChanceCards[cardID] = true;
+                break;
+            case 16:
+                System.out.println("Chance card 16");
+                usedChanceCards[cardID] = true;
+                break;
+            case 17:
+                System.out.println("Chance card 17");
+                usedChanceCards[cardID] = true;
+                break;
+        }
+
+    }
 
 }
 

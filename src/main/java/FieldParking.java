@@ -1,8 +1,6 @@
 public class FieldParking extends Field {
 
-    FieldParking(String name){
-
-    }
+    FieldParking() { }
 
     @Override
     public boolean getOwned() {

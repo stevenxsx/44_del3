@@ -1,6 +1,6 @@
 public class visitJail extends Field {
-    visitJail(String name){
-    }
+
+    visitJail() { }
 
     @Override
     public boolean getOwned() {

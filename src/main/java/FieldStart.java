@@ -1,8 +1,6 @@
 public class FieldStart extends Field {
 
-    public FieldStart(){
-
-    }
+    public FieldStart() { }
 
     @Override
     public boolean getOwned() {
