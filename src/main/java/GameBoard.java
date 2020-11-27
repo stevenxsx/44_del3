@@ -1,5 +1,5 @@
 
-public class GameFields {
+public class GameBoard {
 
     private static final Field[] gameBoardList = new Field[24];
 

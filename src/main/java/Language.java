@@ -4,6 +4,22 @@ public class Language {
     //Index 0 = Danish, Index 1 = English, Index 2 = German, etc.
     public String language = "Index 0= Danish, Index 1 = English, Index 2 = German,";
 
+    //random strings, sort later
+    public String[] receive2 = {"Modtag M2"};
+    public String[] questionmark = {"?"};
+    public String[] defaultMsg = {"default"};
+    public String[] selectNumberPlayers = {"Vælg et antal spillere."};
+    public String[] pleaseEnterName = {"Vær sød at intaste navnet på den "};
+    public String[] dotPlayer = {". Spiller"};
+    public String[] itIsNow = {"Det er nu "};
+    public String[] playersTurn = {"'s tur."};
+    public String[] coinsBeenPaid = {"mønter er blevet betalt"};
+    public String[] had = {" havde "};
+    public String[] moneyLeft = {"penge tilbage.\n"};
+    public String[] wentBankrupt = {" gik bankerot. Spillet er slut!\n"};
+    public String[] gameEnded = {"game ended"};
+
+
     //Strings for welcomeMessage()
     public String[] welcomeMessage = {"Velkommen til Monopoly Junior\n"+
             "Saml din venner og tag på eventyr på Monopoly Juniors bræt\n"+
@@ -86,11 +102,17 @@ public class Language {
     public String[] fieldDescriptionGratisParkering = {"Du behøver ikke gøre noget her, bare snup dig en pause"};
 
     // Strings for chanceCards ()
-    public String[] chanceCard1 = {"Giv dette kort til BILEN, og tag et chancekort mere.\n"+
-                                   "BIL: På din næste tur skal du drøne frem til et hvilket som helst ledigt felt og købe det. \n"+
-                                   "Hvis der ikke er nogen ledige felter, skal du købe et fra en anden spiller"};
-    public String[] chanceCard2 = {"Ryk frem til START. Modtag M2"};
-    public String[] chanceCard3 = {"Ryk op til 5 felter frem"};
+    public String[] chanceCard0 = {"Vælg et felt at rykke frem til, og dermed køb det. Hvis der ikke er nogle felter ledige, så vælg en anden spillers's felt og køb det fra dem"};
+    public String[] chanceCard0EjerAllerede = {"Du ejer allerede det felt. Vælg en modspiller's felt at købe."};
+    public String[] chanceCard0IkkeRåd = {"Du har ikke råd til at købe det felt. Vælg en ny."};
+    public String[] chanceCard0AndenEjer = {"Nogen ejer allerede det felt. Vælg en ny."};
+
+    public String[] chanceCard1 = {"Du bliver rykket til start. Modtag 2 mønter!"};
+    public String[] chanceCard1Okay = {"Okay!"};
+    public String[] chanceCard2 = {"Ryk 1 til 5 felter frem"};
+    public String[] chanceCard3 = {"Vælg et felt og ryk frem til det. Få det gratis hvis det er ledigt!"};
+    public String[] chanceCard3Valg1 = {"Ryk frem til Skaterparken"};
+    public String[] chanceCard3Valg2 = {"Ryk frem til Svømmebassinet"};
     public String[] chanceCard4 = {"GRATIS FELT!\n"+"Ryk frem til et orange felt. Hvis det er ledigt får du det GRATIS!\n"+
                                    "Ellers skal du BETALE leje til ejeren "};
     public String[] chanceCard5 = {"Ryk 1 felt frem, eller tag et chancekort mere."};

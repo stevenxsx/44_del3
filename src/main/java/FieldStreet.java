@@ -36,7 +36,7 @@
      public int getRentPrice() { return rentPrice; }
 
      public void setRentPrice(int rentPrice) {
-         System.out.println(propertyName + "'s rentPrice has been set to " + rentPrice); this.rentPrice = rentPrice * rentPriceMultiplier; }
+          this.rentPrice = rentPrice * rentPriceMultiplier;}
 
      public void setRentPriceMultiplier(int b) { this.rentPriceMultiplier = b; }
 
