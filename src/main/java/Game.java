@@ -1,3 +1,4 @@
+import gui_fields.GUI_Car;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
 import gui_main.GUI;
@@ -56,11 +57,14 @@ public class Game {
         //System.out.println(Arrays.toString(playerNames)); //Debugging!
         //System.out.println(players.toString()); //Debugging
 
+        //Creates 4 cars that can be used for players.
+        GUI_Car[] cars = GUI_Cars.makeCars(numberOfPlayers);
+
         //creates an array of GUI_Player objects. Sets their name, starting money, and car.
         guiPlayers = new GUI_Player[numberOfPlayers];
         for (int i = 0; i < numberOfPlayers; i++) {
-            int startBalance = 20;
-            guiPlayers[i] = new GUI_Player(players.getPlayer(i).getName(), startBalance, players.getPlayer(i).getCar());
+            int defaultBalance = 20;
+            guiPlayers[i] = new GUI_Player(players.getPlayer(i).getName(), defaultBalance, cars[i]);
         }
 
         //Mix the deck of chance cards.
@@ -77,18 +81,6 @@ public class Game {
         while (gameInProgress) { //Keeps game going until gameWon is called
             round();
         }
-
-
-        /*code for placing a car somewhere
-        currentPlacement = 10;
-        GUI_Player player = new GUI_Player("Steven", 2000);
-        gui.addPlayer(player);
-        GUI_Field currentField = gui.getFields()[currentPlacement];
-        currentField.setCar(player, true);
-
-        //code for moving car somewhere
-        gui.getFields()[currentPlacement].setCar(player, true);
-        gui.getFields()[previousPlacement].setCar(player, false);*/
 
     }
 
@@ -133,6 +125,8 @@ public class Game {
 
 
     public void move(int playerID) {
+        currentField = gui.getFields()[currentPlayer.getPlayerPosition()]; //makes sure the gui will remove the car of the current player's position.
+
         previousPlacement = currentPlayer.getPlayerPosition(); //set previous placement
         currentPlayer.movePlayer(die.roll()); //changes player's position number
         currentPlacement = currentPlayer.getPlayerPosition(); //set current placement
@@ -180,7 +174,11 @@ public class Game {
     }
 
     public void landOnJail() {
-        currentPlayer.setPlayerPosition(6);
+
+        currentField.setCar(currentGUIPlayer, false); //sets gui player's position on currentField
+
+        currentPlayer.setPlayerPosition(6); //sets player position to jail cell
+        currentPlacement = currentPlayer.getPlayerPosition(); //updates currentPlacement
         currentPlayer.setJailed(true);
         currentField.setCar(currentGUIPlayer, false); //removes old position on gui
         currentField = gui.getFields()[currentPlacement]; //sets new position on gui
@@ -190,6 +188,7 @@ public class Game {
 
     public void endGame(Player currentPlayer) {
         gameInProgress = false;
+        System.out.println("game ended");
         //players count all their money. the one with most wins the game. If there is a tie, count the value of each players'
         //property and the highest wins. If that's also a tie, then fight to the death by fist.
     }
@@ -205,7 +204,7 @@ public class Game {
     public void landOnChance() {
         boolean cardsLeft = false;
         for (int i = 0; i < usedChanceCards.length; i++) { //Checks to see if at least 1 card is left.
-            if (usedChanceCards[i] == false) {
+            if (!usedChanceCards[i]) {
                 cardsLeft = true;
                 break;
             }

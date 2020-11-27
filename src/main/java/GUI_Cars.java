@@ -4,12 +4,17 @@ import gui_fields.GUI_Field;
 import java.awt.*;
 
 public class GUI_Cars {
-    public static GUI_Car[] makeCars() {
-        GUI_Car[] cars = new GUI_Car[4];
-        cars[0] = new GUI_Car(Color.RED, Color.cyan, GUI_Car.Type.CAR, GUI_Car.Pattern.CHECKERED);
-        cars[1] = new GUI_Car(Color.YELLOW, Color.cyan, GUI_Car.Type.CAR, GUI_Car.Pattern.CHECKERED);
-        cars[2] = new GUI_Car(Color.GREEN, Color.cyan, GUI_Car.Type.CAR, GUI_Car.Pattern.CHECKERED);
-        cars[3] = new GUI_Car(Color.BLUE, Color.cyan, GUI_Car.Type.CAR, GUI_Car.Pattern.CHECKERED);
+    public static GUI_Car[] makeCars(int numCars) {
+        GUI_Car[] cars = new GUI_Car[numCars];
+        for (int i = 0; i < numCars; i++) {
+
+            Color[] colors = new Color[]{Color.RED, Color.YELLOW, Color.GREEN, Color.BLUE};
+            GUI_Car.Pattern[] patterns = new GUI_Car.Pattern[]{GUI_Car.Pattern.CHECKERED, GUI_Car.Pattern.DIAGONAL_DUAL_COLOR, GUI_Car.Pattern.DOTTED, GUI_Car.Pattern.ZEBRA};
+
+            cars[i] = new GUI_Car(colors[colors.length % (i + 1)], new Color((int)(Math.random() * 256),(int)(Math.random() * 256),(int)(Math.random() * 256)), GUI_Car.Type.CAR, patterns[patterns.length % (i + 1)]);
+        }
         return cars;
+
     }
+
 }
