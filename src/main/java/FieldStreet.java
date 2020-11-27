@@ -42,17 +42,10 @@
 
      public int getRentPriceMultiplier() { return this.rentPriceMultiplier; }
 
-     @Override
      public String getPropertyName() {
          return this.propertyName;
      }
 
      public char getType() { return type; }
-
-     public boolean getHasChecked() { return Checked; }
-
-     public void setHasChecked(boolean Checked) { this.Checked = Checked; }
-
-     public int getMaxOwned() { return maxOwned; }
 
  }

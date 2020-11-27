@@ -5,11 +5,12 @@ public class GameFields {
 
 
     //et array som indeholder alle felter og deres attributter
-    public static Field[] makeGameFields() {
+    public static Field[] makeGameFields(int i) {
+        Language l = new Language();
 
         gameBoardList[0] = new FieldStart("Start");
-        gameBoardList[1] = new FieldStreet("M1","Burgerbaren",false,'a', 1,1, null,2);
-        gameBoardList[2] = new FieldStreet("M1", "Pizzariaet",false,'a',1,1, null,2);
+        gameBoardList[1] = new FieldStreet("M1",l.burgerbarentitel[i],false,'a', 1,1, null,2);
+        gameBoardList[2] = new FieldStreet("M1", l.pizzeriaettitel[i],false,'a',1,1, null,2);
         gameBoardList[3] = new FieldChance("Chance");
         gameBoardList[4] = new FieldStreet("M1","Slikbutikken",false,'b',1,1, null,2);
         gameBoardList[5] = new FieldStreet("M1","Iskiosken",false,'b',1,1, null,2);

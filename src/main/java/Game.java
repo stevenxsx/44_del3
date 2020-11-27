@@ -13,21 +13,21 @@ public class Game {
     private int previousPlacement = 0;
     private int currentPlacement = 0;
     boolean gameInProgress = true;
-    private static int l; //selected language index
     boolean[] usedChanceCards = new boolean[18];
     PlayerList players;
     GUI_Player[] guiPlayers;
     Player currentPlayer;
     GUI_Player currentGUIPlayer;
-    Language language = new Language();
+    Language l = new Language();
+    private int o = 0;
     GUI gui;
     GUI_Field currentField;
     Field[] gameboard;
 
 
     public Game() {
-        GUI_Field[] fields = GUI_Fields.makeGUIFields(0);
-        gameboard = GameFields.makeGameFields();
+        GUI_Field[] fields = GUI_Fields.makeGUIFields(o);
+        gameboard = GameFields.makeGameFields(o);
 
         gui = new GUI(fields, Color.WHITE); //Keep this as a light color because messages use dark gray text!
 
@@ -39,11 +39,11 @@ public class Game {
         gui.showMessage("Welcome to Monopoly Junior! Please select a language.");
         //language selection
         if (gui.getUserSelection("Please select a language!", "Danish").equals("Danish")) {
-            l = 0;
+            o = 0;
         } //else if (languageSelection.equals("Danish")) {
             //remake GUI with new language
         //}
-        l = 0; //use this as index for any displayed text in language class
+        //use this as index for any displayed text in language class
 
         //select number of players
         numberOfPlayers = Integer.parseInt(gui.getUserSelection("Please select a number of players!", "2", "3", "4"));
@@ -81,6 +81,8 @@ public class Game {
 
         //updates gui money
         updateGUIMoney(players.getPlayers(), guiPlayers);
+
+        gui.showMessage(l.welcomeMessage[o]);
 
         while (gameInProgress) { //Keeps game going until gameWon is called
             round();
@@ -259,11 +261,6 @@ public class Game {
         //players count all their money. the one with most wins the game. If there is a tie, count the value of each players'
         //property and the highest wins. If that's also a tie, then fight to the death by fist.
     }
-
-    public static int returnLanguageID() {
-        return l;
-    }
-
 
     public int rollChanceCard() {
         return (int) (Math.random() * usedChanceCards.length);

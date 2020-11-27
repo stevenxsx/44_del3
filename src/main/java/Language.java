@@ -1,6 +1,5 @@
 public class Language {
 
-
     //Add indexes to the arrays with translated text.
     //Index 0 = Danish, Index 1 = English, Index 2 = German, etc.
     public String language = "Index 0= Danish, Index 1 = English, Index 2 = German,";
@@ -30,28 +29,51 @@ public class Language {
                                                      "Betal banken det beløb, der står på feltet, og placér et af dine solgt-skilte på det farvede bånd"};
     public String[] getFieldDescriptionDobbeltEjetFelt = {"ejer dette felt og ejer også ejendommen med samme farve\n"+
                                                           "Du skal nu betale denne spiller husleje som er det dobbelte beløb, af hvad der står på feltet"};
-    public String[] legetoejsbutikken = {"Lejetøjs-\n"+ "butikken"};
+    public String[] legetoejsbutikken = {"Lejetøjs-\n"+ "Butikken"};
     public String[] dyreHandlen = {"Dyrehandlen"};
-    public String[] gaaIFaengsel = {"Gå i fængsel"};
-    public String[] bowlinghallen = {"Bowling-\n"+ "hallen"};
+    public String[] gaaIFaengsel = {"Gå I Fængsel"};
+    public String[] bowlinghallen = {"Bowling-\n"+ "Hallen"};
     public String[] zoo = {"Zoologisk Have"};
     public String[] chance = {"Chance"};
     public String[] vandland = {"Vandlandet"};
-    public String[] strandpromonaden = {"Strand-\n" + "promonaden"};
+    public String[] strandpromonaden = {"Strand-\n" + "Promenaden"};
     public String[] start = {"Start"};
     public String[] burgerbaren = {"Burgerbaren"};
     public String[] pizzeriaet = {"Pizzeriaet"};
-    public String[] slikkebutikken = {"Slikke-\n" + "butikken"};
+    public String[] slikbutikken = {"Slik-\n" + "Butikken"};
     public String[] iskiosken = {"Iskiosken"};
-    public String[] paaBesoeg = {"På besøg"};
+    public String[] faengsel = {"Fængsel"};
     public String[] museet = {"Museet"};
     public String[] biblioteket = {"Biblioteket"};
     public String[] skaterparken = {"Skaterparken"};
-    public String[] svoemmebassinet = {"Svømme-\n" + "bassenget"};
+    public String[] svoemmebassinet = {"Svømme-\n" + "Bassinet"};
     public String[] gratis = {"Gratis"};
     public String[] parkering = {"Parkering"};
     public String[] spillehallen = {"Spillehallen"};
     public String[] biografen = {"Biografen"};
+
+    public String[] legetoejsbutikkentitel = {"Lejetøjsbutikken"};
+    public String[] dyreHandlentitel = {"Dyrehandleren"};
+    public String[] gaaIFaengseltitel = {"Gå I Fængsel"};
+    public String[] bowlinghallentitel = {"Bowlinghallen"};
+    public String[] zootitel = {"Zoologisk Have"};
+    public String[] chancetitel = {"Chance"};
+    public String[] vandlandtitel = {"Vandlandet"};
+    public String[] strandpromonadentitel = {"Strandpromenaden"};
+    public String[] starttitel = {"Start"};
+    public String[] burgerbarentitel = {"Burgerbaren"};
+    public String[] pizzeriaettitel = {"Pizzeriaet"};
+    public String[] slikbutikkentitel = {"Slikbutikken"};
+    public String[] iskioskentitel = {"Iskiosken"};
+    public String[] faengseltitel = {"Fængsel"};
+    public String[] museettitel = {"Museet"};
+    public String[] bibliotekettitel = {"Biblioteket"};
+    public String[] skaterparkentitel = {"Skaterparken"};
+    public String[] svoemmebassinettitel = {"Svømmebassinet"};
+    public String[] gratistitel = {"Gratis"};
+    public String[] parkeringtitel = {"Parkering"};
+    public String[] spillehallentitel = {"Spillehallen"};
+    public String[] biografentitel = {"Biografen"};
     
 
 

@@ -13,9 +13,9 @@ public class GUI_Fields {
         fields[i++] = new GUI_Street(l.burgerbaren[j], "M1", "", "1M", new Color(153, 76,0), Color.BLACK);
         fields[i++] = new GUI_Street(l.pizzeriaet[j], "M1", "", "1M", new Color(153, 76,0), Color.BLACK);
         fields[i++] = new GUI_Chance("?", l.chance[j], l.fieldDescriptionChance[j], Color.WHITE, Color.BLACK);
-        fields[i++] = new GUI_Street(l.slikkebutikken[j], "M1", "", "1M", new Color(0, 204,204), Color.BLACK);
+        fields[i++] = new GUI_Street(l.slikbutikken[j], "M1", "", "1M", new Color(0, 204,204), Color.BLACK);
         fields[i++] = new GUI_Street(l.iskiosken[j], "M1", "", "1M", new Color(0, 204,204), Color.BLACK);
-        fields[i++] = new GUI_Jail("default", "", l.paaBesoeg[j], l.fieldDescriptionPaaBesoeg[j], Color.WHITE, Color.BLACK);
+        fields[i++] = new GUI_Jail("default", "", l.faengsel[j], l.fieldDescriptionPaaBesoeg[j], Color.WHITE, Color.BLACK);
         fields[i++] = new GUI_Street(l.museet[j], "M2", "", "2M", new Color(204, 153,235), Color.BLACK);
         fields[i++] = new GUI_Street(l.biblioteket[j], "M2", "", "2M", new Color(204, 153,235), Color.BLACK);
         fields[i++] = new GUI_Chance("?", l.chance[j], l.fieldDescriptionChance[j], Color.WHITE, Color.BLACK);
