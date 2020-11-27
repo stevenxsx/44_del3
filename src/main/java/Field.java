@@ -10,4 +10,12 @@ abstract class Field {
     public abstract int getRentPrice();
 
     public abstract Player getOwner();
+
+    public abstract char getType();
+
+    public abstract void setRentPrice(int i);
+
+    public abstract void setRentPriceMultiplier(int b);
+
+    public abstract int getRentPriceMultiplier();
 }

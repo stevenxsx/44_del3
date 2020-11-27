@@ -39,7 +39,7 @@ public class Game {
         gui.showMessage("Welcome Message :)");
         //language selection
         if (gui.getUserSelection("Please select a language!", "English", "Danish", "Orc", "Chalcatongo Mixtec (dont pick please)").equals("English")) {
-            System.out.println("Language Unchanged - English");
+            //System.out.println("Language Unchanged - English");
         } else if (gui.getUserSelection("Please select a language!", "English", "Danish", "Orc", "Chalcatongo Mixtec (dont pick please)").equals("Danish")) {
             //remake GUI with new language
             System.out.println("Language Change - Danish");
@@ -73,8 +73,9 @@ public class Game {
         //set current field to Start.
         currentField = gui.getFields()[0];
 
-        //puts the players on Start in the gui.
+        //Creates the name/car/money part on the left and puts the players on Start in the gui.
         for (int i = 0; i < numberOfPlayers; i++) {
+            gui.addPlayer(guiPlayers[i]);
             currentField.setCar(guiPlayers[i], true);
         }
 
@@ -84,6 +85,8 @@ public class Game {
         while (gameInProgress) { //Keeps game going until gameWon is called
             round();
         }
+
+
 
     }
 
@@ -140,7 +143,10 @@ public class Game {
         currentField = gui.getFields()[currentPlacement]; //sets new position on gui
         currentField.setCar(currentGUIPlayer, true); //sets gui player's position on currentField
 
-
+        if (currentPlayer.hasPassedGoThisTurn()) { //adds money if player passes go when moving.
+            currentPlayer.addCoins(2);
+        }
+        currentPlayer.resetHasPassedGo(); //sets boolean back to false.
         landOnField();
     }
 
@@ -160,10 +166,12 @@ public class Game {
         if (!gameboard[currentPlacement].getOwned()) { //checks if NOT owned
             if (currentPlayer.getCoins() < gameboard[currentPlacement].getStreetPrice()) { //checks if you're poor
                 endGame(currentPlayer); //ends game if you're poor
-            } else {
+            } else { //buys property and assigns player's name to the gui.
                 gameboard[currentPlacement].setOwned(true);
                 gameboard[currentPlacement].setOwner(currentPlayer);
+                gui.getFields()[currentPlacement].setSubText(currentPlayer.getName()); //gui property owner name updated here
                 currentPlayer.addCoins(-(gameboard[currentPlacement].getStreetPrice())); //pays for the property
+                checkColorGroupOwned(currentPlacement);
             }
 
 
@@ -173,6 +181,7 @@ public class Game {
             } else {
                 currentPlayer.addCoins(-(gameboard[currentPlacement].getRentPrice()));
                 gameboard[currentPlacement].getOwner().addCoins(gameboard[currentPlacement].getRentPrice());
+                System.out.println(gameboard[currentPlacement].getRentPrice() + " coins have been paid");
             }
         }
         //update gui ?
@@ -195,6 +204,42 @@ public class Game {
         for (int i = 0; i < players.length; i++) {
             guiPlayers[i].setBalance(players[i].getCoins());
         }
+
+    }
+
+    private void checkColorGroupOwned(int propertyID) {
+        char type = gameboard[propertyID].getType(); //sets type equal to purchased property's type
+        for (int i = 0; i < gameboard.length; i++) {
+            if (gameboard[i].getType() == type && (i != propertyID)) { //checks for the matching property
+                if (gameboard[i].getOwner() == gameboard[propertyID].getOwner()) { //checks if both properties are now owned by the same person or not.
+                    gameboard[i].setRentPriceMultiplier(2);
+                    gameboard[propertyID].setRentPriceMultiplier(2);
+                }
+                else {
+                    gameboard[i].setRentPriceMultiplier(1);
+                    gameboard[propertyID].setRentPriceMultiplier(1);
+                }
+            }
+            gameboard[i].setRentPrice(gameboard[i].getRentPrice()); //updates rent price with the new multiplier
+            gameboard[propertyID].setRentPrice(gameboard[i].getRentPrice());
+
+        }
+
+
+        /*for (int i = 0; i < gameboard.length; i++) {
+            if (gameboard[(i % gameboard.length)].getType() == gameboard[(i + 1) % gameboard.length].getType()) { //checks if 2 adjacent fields are of same type
+                if (gameboard[(i % gameboard.length)].getOwner() == gameboard[(i + 1) % gameboard.length].getOwner()) { //checks if those same 2 fields are owned by 1 person
+                    if (gameboard[(i % gameboard.length)].getRentPriceMultiplier() == 1) { //checks to see if the price has already been doubled
+                        gameboard[(i % gameboard.length)].setRentPriceMultiplier(2); //doubles rent price
+                        gameboard[((i + 1) % gameboard.length)].setRentPriceMultiplier(2);
+
+
+                    }
+                    gameboard[(i % gameboard.length)].setRentPrice(gameboard[(i % gameboard.length)].getRentPrice()); //doubles rent price of those 2 fields. (MUST UNDO IF OWNERSHIP LOST)
+                    gameboard[(i + 1) % gameboard.length].setRentPrice(gameboard[(i + 1) % gameboard.length].getRentPrice());
+                }
+            }
+        }*/
 
     }
 

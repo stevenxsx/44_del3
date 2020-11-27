@@ -31,4 +31,24 @@ public class visitJail extends Field {
     public Player getOwner() {
         return null;
     }
+
+    @Override
+    public char getType() {
+        return 0;
+    }
+
+    @Override
+    public void setRentPrice(int i) {
+
+    }
+
+    @Override
+    public void setRentPriceMultiplier(int b) {
+
+    }
+
+    @Override
+    public int getRentPriceMultiplier() {
+        return 0;
+    }
 }

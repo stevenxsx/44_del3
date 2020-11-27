@@ -5,6 +5,7 @@
         Player owner;
         char type;
         int rentPrice;
+        int rentPriceMultiplier = 1;
         int streetPrice;
         boolean Checked = false;
         int maxOwned;
@@ -33,7 +34,12 @@
      public Player getOwner(){return owner;}
 
      public int getRentPrice() { return rentPrice; }
-     public void setRentPrice(int rentPrice) { this.rentPrice = rentPrice; }
+
+     public void setRentPrice(int rentPrice) { this.rentPrice = rentPrice * rentPriceMultiplier; }
+
+     public void setRentPriceMultiplier(int b) { this.rentPriceMultiplier = b; }
+
+     public int getRentPriceMultiplier() { return this.rentPriceMultiplier; }
 
      public char getType() { return type; }
 

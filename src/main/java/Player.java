@@ -68,6 +68,10 @@ public class Player extends Account {
         }
     }
 
+    public void resetHasPassedGo() {
+        passedGoThisTurn = false;
+    }
+
     public boolean hasPassedGoThisTurn() {
         return passedGoThisTurn;
     }
