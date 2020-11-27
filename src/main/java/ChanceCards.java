@@ -126,7 +126,7 @@ public class ChanceCards extends ChanceCardController {
                 gui.getUserButtonPressed("Du har fået et Fri-fra-jail-kort, som du kan gemme og bruge hvis du havner i fængsel.", "Fortsæt");
                 gui.getUserButtonPressed("Du har nu " + player.getNumberOfEscapeCards() + "antal fri-fra-jail-kort", "Fortsæt");
                 break;
-
+/*
             case 8:
               /* //ryk til orange felt
                 gui.getUserButtonPressed("Du skal ryk frem til et orange felt, du får det gratis hvis der ledigt", "Fortsæt");
