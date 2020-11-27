@@ -70,8 +70,7 @@ public class Language {
     public String[] bibliotekettitel = {"Biblioteket"};
     public String[] skaterparkentitel = {"Skaterparken"};
     public String[] svoemmebassinettitel = {"Svømmebassinet"};
-    public String[] gratistitel = {"Gratis"};
-    public String[] parkeringtitel = {"Parkering"};
+    public String[] parkeringtitel = {"Gratis Parkering"};
     public String[] spillehallentitel = {"Spillehallen"};
     public String[] biografentitel = {"Biografen"};
     
