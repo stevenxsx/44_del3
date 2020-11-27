@@ -4,7 +4,7 @@ public class FieldJail extends Field {
 
     @Override
     public boolean getOwned() {
-        return false;
+        return true;
     }
 
     @Override
@@ -50,5 +50,10 @@ public class FieldJail extends Field {
     @Override
     public int getRentPriceMultiplier() {
         return 0;
+    }
+
+    @Override
+    public String getPropertyName() {
+        return null;
     }
 }

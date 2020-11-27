@@ -35,11 +35,17 @@
 
      public int getRentPrice() { return rentPrice; }
 
-     public void setRentPrice(int rentPrice) { this.rentPrice = rentPrice * rentPriceMultiplier; }
+     public void setRentPrice(int rentPrice) {
+         System.out.println(propertyName + "'s rentPrice has been set to " + rentPrice); this.rentPrice = rentPrice * rentPriceMultiplier; }
 
      public void setRentPriceMultiplier(int b) { this.rentPriceMultiplier = b; }
 
      public int getRentPriceMultiplier() { return this.rentPriceMultiplier; }
+
+     @Override
+     public String getPropertyName() {
+         return this.propertyName;
+     }
 
      public char getType() { return type; }
 

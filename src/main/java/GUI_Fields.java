@@ -19,8 +19,8 @@ public class GUI_Fields {
         fields[i++] = new GUI_Street(l.museet[j], "M2", "", "2M", new Color(204, 153,235), Color.BLACK);
         fields[i++] = new GUI_Street(l.biblioteket[j], "M2", "", "2M", new Color(204, 153,235), Color.BLACK);
         fields[i++] = new GUI_Chance("?", l.chance[j], l.fieldDescriptionChance[j], Color.WHITE, Color.BLACK);
-        fields[i++] = new GUI_Street(l.skaterparken[j], "M2", "", "2M",  new Color(255, 255,153), Color.BLACK);
-        fields[i++] = new GUI_Street(l.svoemmebassenget[j], "M2", "", "2M", new Color(255, 255,153), Color.BLACK);
+        fields[i++] = new GUI_Street(l.skaterparken[j], "M2", "", "2M",  new Color(255, 150,50), Color.BLACK);
+        fields[i++] = new GUI_Street(l.svoemmebassinet[j], "M2", "", "2M", new Color(255, 150,50), Color.BLACK);
         fields[i++] = new GUI_Refuge("default", l.gratis[j], l.parkering[j], l.fieldDescriptionGratisParkering[j], Color.WHITE, Color.BLUE);
         fields[i++] = new GUI_Street(l.spillehallen[j], "M3", "", "3M", new Color(153, 0,0), Color.BLACK);
         fields[i++] = new GUI_Street(l.biografen[j], "M3", "", "3M",new Color(153, 0,0), Color.BLACK);

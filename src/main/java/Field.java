@@ -18,4 +18,6 @@ abstract class Field {
     public abstract void setRentPriceMultiplier(int b);
 
     public abstract int getRentPriceMultiplier();
+
+    public abstract String getPropertyName();
 }

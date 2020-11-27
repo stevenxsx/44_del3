@@ -3,9 +3,7 @@ public class visitJail extends Field {
     visitJail() { }
 
     @Override
-    public boolean getOwned() {
-        return false;
-    }
+    public boolean getOwned() { return true; }
 
     @Override
     public int getStreetPrice() {
@@ -50,5 +48,10 @@ public class visitJail extends Field {
     @Override
     public int getRentPriceMultiplier() {
         return 0;
+    }
+
+    @Override
+    public String getPropertyName() {
+        return null;
     }
 }

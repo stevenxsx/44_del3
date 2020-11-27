@@ -18,7 +18,7 @@ public class Language {
     public String[] enterAge = {"Angiv din alder"};
     public String[] choosePlayerFigur = {"Vælg din spillerfigur"};
     public String[] contineGame = {"Tryk enter og lad spillet starte"};
-    public String[] youngestPlayer = {"Tillykke du er den yngstes spiller og får lov at starte"};
+    public String[] youngestPlayer = {"Tillykke du er den yngste spiller og får lov til at starte"};
 
 
     // Strings for landOnField()
@@ -34,7 +34,7 @@ public class Language {
     public String[] dyreHandlen = {"Dyrehandlen"};
     public String[] gaaIFaengsel = {"Gå i fængsel"};
     public String[] bowlinghallen = {"Bowling-\n"+ "hallen"};
-    public String[] zoo = {"Zoo"};
+    public String[] zoo = {"Zoologisk Have"};
     public String[] chance = {"Chance"};
     public String[] vandland = {"Vandlandet"};
     public String[] strandpromonaden = {"Strand-\n" + "promonaden"};
@@ -47,7 +47,7 @@ public class Language {
     public String[] museet = {"Museet"};
     public String[] biblioteket = {"Biblioteket"};
     public String[] skaterparken = {"Skaterparken"};
-    public String[] svoemmebassenget = {"Svømme-\n" + "bassenget"};
+    public String[] svoemmebassinet = {"Svømme-\n" + "bassenget"};
     public String[] gratis = {"Gratis"};
     public String[] parkering = {"Parkering"};
     public String[] spillehallen = {"Spillehallen"};

@@ -62,8 +62,8 @@ public class Player extends Account {
      */
     public void movePlayer(int amount){
         int prevPosition = playerPosition;
-        playerPosition = ((playerPosition + amount) % 23);
-        if (prevPosition > playerPosition) {
+        playerPosition = ((playerPosition + amount) % 24);
+        if (prevPosition >= playerPosition) {
             passedGoThisTurn = true;
         }
     }
