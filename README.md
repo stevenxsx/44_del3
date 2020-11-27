@@ -5,6 +5,7 @@ In order for you to run our project you must have Java installed as well as one 
 * MacOS
 
 Navigate to ____________
+
 Once the program is open specify how many are playing, enter your names and start the game. 
 The game is played by pressing enter alternately betweent the players to roll the dice.
 
@@ -20,6 +21,7 @@ Velkommen! Dette er vores CDIO 3 projekt. For at køre dette program skal du hav
 
 * Windows vista, 7, eller en senere version
 * MacOS
+
 Naviger til ________________
 
 
