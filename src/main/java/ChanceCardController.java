@@ -18,8 +18,8 @@ public class ChanceCardController extends Field {
     public int getCard (Player player, GUI gui, int i, int arrayLength, Player[] playerArray) {
         this.i =i;
         Random cardPile = new Random();
-        int card = cardPile.nextInt(7) + 1;
-       // int card = cardPile.nextInt(1) + 1; til test af kort kan den specificeres
+        //int card = cardPile.nextInt(7) + 1;
+       int card = cardPile.nextInt(1) + 8; //til test af kort kan den specificeres
 // Nu er det sat op så man kan en af de 20 tilfældige chance-kort når jeg har lavet dem 
         ChanceCards chanceCard = new ChanceCards(card, player, gui, i, playerArray, arrayLength);
         chanceCard.cardPile();

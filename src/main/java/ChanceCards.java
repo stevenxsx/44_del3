@@ -1,5 +1,8 @@
 import gui_fields.GUI_Player;
 import gui_main.GUI;
+
+import java.util.Random;
+
 public class ChanceCards extends ChanceCardController {
 
     int cardNumber;
@@ -124,7 +127,45 @@ public class ChanceCards extends ChanceCardController {
                 gui.getUserButtonPressed("Du har nu " + player.getNumberOfEscapeCards() + "antal fri-fra-jail-kort", "Fortsæt");
                 break;
 
+            case 8:
+              /* //ryk til orange felt
+                gui.getUserButtonPressed("Du skal ryk frem til et orange felt, du får det gratis hvis der ledigt", "Fortsæt");
+                String valg = gui.getUserSelection("Vælg hvilket felt at rykke over på", "");
+                if (valg == "Skaterparken") {
 
+                    if (player.getPosition() == 3)
+                        player.setPosition(10);
+                    else if (player.getPosition() == 9)
+                        player.setPosition(10);
+                    else if (player.getPosition() > 9)
+                        player.setPosition(10);
+                        player.addCoins(2);}
+                    }
+                }
+
+
+                /* //Ryk 1 frem eller tryk nyt kort
+                String valg = gui.getUserButtonPressed("du skal vælge nu", "ryk 1 frem", "træk nyt kort");
+                if (valg == "ryk 1 frem")
+                    player.setPosition(player.getPosition()+1);
+                else{
+
+                     }
+
+                break;
+*/
+
+
+            /*
+                //Ryk til skaterparken
+
+                player.setPosition(10);
+                gui.getUserButtonPressed("Ryk til skaterparken og få det hvis det ledigt ellers betal leje", "Fortsæt");
+                //skal prøve og se hvordan jeg tilgår get og set ownedmetoderne
+                player.
+
+
+                break;*/
 
 
 
