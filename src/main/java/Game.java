@@ -78,6 +78,9 @@ public class Game {
             currentField.setCar(guiPlayers[i], true);
         }
 
+        //updates gui money
+        updateGUIMoney(players.getPlayers(), guiPlayers);
+
         while (gameInProgress) { //Keeps game going until gameWon is called
             round();
         }
@@ -120,6 +123,8 @@ public class Game {
                 }
             }
         }
+
+        updateGUIMoney(players.getPlayers(), guiPlayers);
 
     }
 
@@ -183,6 +188,14 @@ public class Game {
         currentField.setCar(currentGUIPlayer, false); //removes old position on gui
         currentField = gui.getFields()[currentPlacement]; //sets new position on gui
         currentField.setCar(currentGUIPlayer, true); //sets gui player's position on currentField
+    }
+
+    private void updateGUIMoney(Player[] players, GUI_Player[] guiPlayers) {
+
+        for (int i = 0; i < players.length; i++) {
+            guiPlayers[i].setBalance(players[i].getCoins());
+        }
+
     }
 
 
