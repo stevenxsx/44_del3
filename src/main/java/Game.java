@@ -36,15 +36,13 @@ public class Game {
 
     public void startGame() {
         //welcome message
-        gui.showMessage("Welcome Message :)");
+        gui.showMessage("Welcome to Monopoly Junior! Please select a language.");
         //language selection
-        String languageSelection = "";
-        if (gui.getUserSelection("Please select a language!", "English").equals("English")) {
-            //System.out.println("Language Unchanged - English");
-        } else if (languageSelection.equals("Danish")) {
+        if (gui.getUserSelection("Please select a language!", "Danish").equals("Danish")) {
+            l = 0;
+        } //else if (languageSelection.equals("Danish")) {
             //remake GUI with new language
-            System.out.println("Language Change - Danish");
-        }
+        //}
         l = 0; //use this as index for any displayed text in language class
 
         //select number of players
