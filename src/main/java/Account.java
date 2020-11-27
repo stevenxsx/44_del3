@@ -1,6 +1,6 @@
 
 public class Account {
-    private static int DEFAULT_COIN_AMOUNT;
+    private static int DEFAULT_COIN_AMOUNT = 200;
     private static final int MIN_COIN_AMOUNT = 0;
     private int coins;
 
@@ -28,7 +28,7 @@ public class Account {
     }
 
     private int getDefaultCoinAmount(int numPlayers){
-        return (20-((numPlayers-2)*2));
+        return (DEFAULT_COIN_AMOUNT-((numPlayers-2)*2));
     }
 
     public String toString() {

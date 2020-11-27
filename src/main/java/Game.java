@@ -178,15 +178,16 @@ public class Game {
 
 
         } else { //if the property is already owned
-            if (currentPlayer.getCoins() < gameboard[currentPlacement].getRentPrice()) { //checks if you're poor
-                endGame(currentPlayer);
-            } else {
-                currentPlayer.addCoins(-(gameboard[currentPlacement].getRentPrice()));
-                gameboard[currentPlacement].getOwner().addCoins(gameboard[currentPlacement].getRentPrice());
-                System.out.println(gameboard[currentPlacement].getRentPrice() + " coins have been paid");
+            if (gameboard[currentPlacement].getOwner() != currentPlayer) { //Only does something if the player doesn't own the property himself
+                if (currentPlayer.getCoins() < gameboard[currentPlacement].getRentPrice()) { //checks if you're poor
+                    endGame(currentPlayer);
+                } else {
+                    currentPlayer.addCoins(-(gameboard[currentPlacement].getRentPrice()));
+                    gameboard[currentPlacement].getOwner().addCoins(gameboard[currentPlacement].getRentPrice());
+                    System.out.println(gameboard[currentPlacement].getRentPrice() + " coins have been paid");
+                }
             }
         }
-        //update gui ?
     }
 
     public void landOnJail() {
@@ -311,7 +312,7 @@ public class Game {
                 for (int i = 0; i < gameboard.length; i++) { //checks if there are available properties
                     if (!gameboard[i].getOwned()) {
                         areAllPropertiesPurchased = false;
-
+                        break;
                     }
                 }
 
@@ -322,21 +323,29 @@ public class Game {
                 }
 
                 if (areAllPropertiesPurchased) { //no properties left -> steal property
-                    if (currentPlayer.getCoins() >= gameboard[selectedPropertyIndex].getStreetPrice()) {//checks if the player can afford to buy the property.
-                        gameboard[selectedPropertyIndex].getOwner().addCoins(gameboard[selectedPropertyIndex].getStreetPrice()); //pays the previous owner the price
-                        gameboard[selectedPropertyIndex].setOwner(currentPlayer); //sets the current player as the new owner
-                        currentPlayer.addCoins(-gameboard[selectedPropertyIndex].getStreetPrice()); //current player pays for the new property
-                        move(24 + (selectedPropertyIndex - currentPlacement) % 24); //moves player to his new property
-                    }
-                    else { //triggers if the player can't afford the property
-                        gui.showMessage("Du har ikke råd til at købe det felt. Vælg en ny.");
+                    if (gameboard[selectedPropertyIndex].getOwner() == currentPlayer) { //checks if property is owned by the player attempting steal
+                        gui.showMessage("Du ejer allerede det felt. Vælg en modspiller's felt at købe.");
                         chance(0);
+                    } else {
+                        if (currentPlayer.getCoins() >= gameboard[selectedPropertyIndex].getStreetPrice()) {//checks if the player can afford to buy the property.
+                            gameboard[selectedPropertyIndex].getOwner().addCoins(gameboard[selectedPropertyIndex].getStreetPrice()); //pays the previous owner the price
+                            gameboard[selectedPropertyIndex].setOwner(currentPlayer); //sets the current player as the new owner
+                            currentPlayer.addCoins(-gameboard[selectedPropertyIndex].getStreetPrice()); //current player loses money equal to the cost of the new property
+                            move(24 + (selectedPropertyIndex - currentPlacement) % 24); //moves player to his new property
+                        } else { //triggers if the player can't afford the property
+                            gui.showMessage("Du har ikke råd til at købe det felt. Vælg en ny.");
+                            chance(0);
+                        }
                     }
 
 
-
-                } else { //moves to selected property and buys it like normal.
-                    move(24 + (selectedPropertyIndex - currentPlacement) % 24);
+                } else { //Attempts to buy property
+                    if (gameboard[selectedPropertyIndex].getOwned()) { //checks if property is owned first
+                        gui.showMessage("Nogen ejer allerede det felt. Vælg en ny.");
+                        chance(0);
+                    } else { //moves to selected property and buys it like normal if property isn't owned.
+                        move(24 + (selectedPropertyIndex - currentPlacement) % 24);
+                    }
                 }
 
 
