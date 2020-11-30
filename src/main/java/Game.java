@@ -10,7 +10,7 @@ public class Game {
 
     Dice die = new Dice();
     private int numberOfPlayers;
-    private int previousPlacement = 0;
+    //private int previousPlacement = 0;
     private int currentPlacement = 0;
     boolean gameInProgress = true;
     boolean[] usedChanceCards = new boolean[18];
@@ -137,7 +137,7 @@ public class Game {
     public void move(int distance) {
         currentField = gui.getFields()[currentPlayer.getPlayerPosition()]; //makes sure the gui will remove the car of the current player's position.
 
-        previousPlacement = currentPlayer.getPlayerPosition(); //set previous placement
+        //previousPlacement = currentPlayer.getPlayerPosition(); //set previous placement
         currentPlayer.movePlayer(distance); //changes player's position number
         currentPlacement = currentPlayer.getPlayerPosition(); //set current placement
 
@@ -315,7 +315,7 @@ public class Game {
                             currentPlayer.addCoins(-gameboard[selectedPropertyIndex].getStreetPrice()); //current player loses money equal to the cost of the new property
                             move(24 + (selectedPropertyIndex - currentPlacement) % 24); //moves player to his new property
                             gui.getFields()[currentPlacement].setSubText(currentPlayer.getName()); //sets gui property owner name
-                            checkColorGroupOwned(currentPlacement); //test this
+                            checkColorGroupOwned(currentPlacement);
                         } else { //triggers if the player can't afford the property
                             gui.showMessage(l.chanceCard0IkkeRåd[o]);
                             chance(0);
@@ -377,6 +377,10 @@ public class Game {
                 }
                 break;
             case 5:
+            case 12:
+            case 11:
+                //System.out.println("Chance card Ryk frem til hvilken som helst felt 3");
+                //System.out.println("Chance card Ryk frem til hvilken som helst felt 4");
                 //System.out.println("Chance card Chance card Ryk frem til hvilken som helst felt 2");
                 usedChanceCards[cardID] = true;
                 chance(0);
@@ -445,16 +449,6 @@ public class Game {
                 //System.out.println("Chance card Ryk frem til Strandpromenaden");
                 usedChanceCards[cardID] = true;
                 move(24 + (23 - currentPlacement) % 24); //Move to "Strandpromenaden"
-                break;
-            case 11:
-                //System.out.println("Chance card Ryk frem til hvilken som helst felt 3");
-                usedChanceCards[cardID] = true;
-                chance(0);
-                break;
-            case 12:
-                //System.out.println("Chance card Ryk frem til hvilken som helst felt 4");
-                usedChanceCards[cardID] = true;
-                chance(0);
                 break;
             case 13:
                 //System.out.println("Chance card Alle giver dig 1 mønt");

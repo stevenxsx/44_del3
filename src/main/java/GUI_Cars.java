@@ -1,11 +1,11 @@
 import gui_fields.GUI_Car;
-import gui_fields.GUI_Field;
 
 import java.awt.*;
 
 public class GUI_Cars {
     public static GUI_Car[] makeCars(int numCars) {
         GUI_Car[] cars = new GUI_Car[numCars];
+
         for (int i = 0; i < numCars; i++) {
 
             Color[] colors = new Color[]{Color.RED, Color.YELLOW, Color.GREEN, Color.BLUE};

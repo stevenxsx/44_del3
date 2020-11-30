@@ -5,8 +5,7 @@ public class FieldGoToJail extends Field {
     public FieldGoToJail(String name) { propertyName = name; }
 
     @Override
-    public boolean getOwned() {
-        return true;
+    public boolean getOwned() { return true;
     }
 
     @Override
